@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "Cookie Web Extension",
+  "version": "2.0",
+
+  "description": "deletes cookies",
+  "icons": {
+    "48": "icons/cookie-48.png"
+  },
+
+  "permissions": [
+ "cookies"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/cookie-32.png",
+    "default_title": "Cookie Web Extension",
+    "default_popup": "files/cookie.html"
+  },
+
+  "icons": {
+    "48": "icons/cookie-48.png",
+    "96": "icons/cookie-96.png"
+  }
+
+}
