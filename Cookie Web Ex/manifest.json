@@ -10,7 +10,9 @@
   },
 
   "permissions": [
- "cookies"
+ "cookies",
+ "<all_urls>",
+ "*://*.google.com/"
   ],
 
   "browser_action": {
