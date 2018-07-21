@@ -18,7 +18,7 @@
  
  Right now the functionality this project includes is to:
  
-  - Provide logs of all cookie values when  "LOG COOKIES" is pressed.<br />
+  - Provide logs of all cookie names values when  "LOG COOKIES" is pressed.<br />
   - Provide a button that says "CLEAR COOKIES".
   
  ### Next steps for the project:
