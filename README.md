@@ -13,3 +13,17 @@
  All icons are used under Open Content license and are labeled for reuse with modification. <br />
  Icons retrieved from https://cdn.pixabay.com/photo/2014/11/08/15/57/chocolate-chip-cookie-522389_960_720.jpg <br />
  and edited with MS paint.
+ 
+ # THIS IS NOT A FINISHED PROJECT
+ 
+ Right now the functionality this project includes is to:
+ 
+  - Provide logs of all cookie values when  "LOG COOKIES" is pressed.<br />
+  - Provide a button that says "CLEAR COOKIES".
+  
+ ### Next steps for the project:
+ 
+  - Provide a way to clear all cookies with the "CLEAR COOKIES" button (almost finished)<br />
+  - Provide more specific methods of clearing cookies<br />
+  - Create a way to shows the user cookie values and information instead of logging values<br />
+  - Move project away from API once the API version is satisfactory
