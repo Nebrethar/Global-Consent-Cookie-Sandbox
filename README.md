@@ -11,7 +11,7 @@
  ## Licensing and Copyright
  
  All icons are used under Open Content license and are labeled for reuse with modification. <br />
- Icons retrieved from https://cdn.pixabay.com/photo/2014/11/08/15/57/chocolate-chip-cookie-522389_960_720.jpg <br />
+ Icons retrieved from https://pixabay.com/en/chocolate-chip-cookie-chocolate-522389/ <br />
  and edited with MS paint.
  
  # THIS IS NOT A FINISHED PROJECT
