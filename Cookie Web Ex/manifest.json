@@ -11,8 +11,7 @@
 
   "permissions": [
  "cookies",
- "<all_urls>",
- "*://*.google.com/"
+ "<all_urls>"
   ],
 
   "browser_action": {
