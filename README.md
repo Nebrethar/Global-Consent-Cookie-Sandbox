@@ -8,14 +8,16 @@
  
  The button "LOG COOKIES" will send names and values of your cookies to the user's browser log (ctrl+shift+J).
  
- The "CHANGE COOKIES" button will rewrite all cookies with the value that is provided in the middle bar. 
+ The "CHANGE ALL COOKIES" button will rewrite all cookies with the value that is provided in the middle bar. 
  Its changes are kept within the extension, for now.
  
- the "BE MORE SPECIFIC" button allows the user to specify the name of the cookie they would like to temporarily rewrite.
+ The "BE MORE SPECIFIC" button allows the user to specify the name of the cookie they would like to temporarily rewrite.
+ 
+ The button "CLEAR COOKIES" will remove all cookies from the browser.
  
  ## API information
  
- APIs used for the first section of the project are provided by Mozilla and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
+ APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
  
  ## Licensing and Copyright
 All source code copyright is retained by the contributors. All contriubtions and source code are licensed under the MIT licence. 
@@ -34,14 +36,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  
  # THIS IS NOT A FINISHED PROJECT
  
- Right now the functionality this project includes is to:
+ Right now this project includes the functionality to:
  
-  - Provide logs of all cookie names values when  "LOG COOKIES" is clicked.<br />
-  - Provide a button that says "CHANGE COOKIES" that modifies cookies temporarily.<br />
-  - Allow user to change specific cookies by name.
+  - Allow the user to delete all cookies from their FireFox browser.<br />
+  - Provide logs of all cookie names values.<br />
+  - Provide a button that modifies all browser cookie values temporarily.<br />
+  - Allow the user to change specific cookies (temporarily) by name.
   
  ### Next steps for the project:
  
-  - Provide more methods of cookie modification and user control<br />
   - Create a new method of showing the user cookie values and information<br />
   - Continue to migrate away from API style of code
