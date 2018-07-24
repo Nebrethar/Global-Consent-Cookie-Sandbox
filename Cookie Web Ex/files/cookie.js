@@ -4,34 +4,42 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 */
 
 document.addEventListener("click", (e) => {
-	/*Function used to log all cookie 
-	values to console (for now)*/
-	function logCookies(cookies) {
-	console.log(cookies);
-    for (let cookie of cookies) {
-    console.log(cookie.name + ": " + cookie.value);
-    }
-    }
-	/*Function that will clear all 
-	cookies with a for loop? (maybe soon)*/
 	function rewriteCookieValues(cookies) {
 	var i = 1;
 	for (let cookie of cookies){
-	console.log(cookie);
-	console.log(cookie.value);
-	cookie.name = cookie.name + " " + i;
-	cookie.value = "HI! I'M A COOKIE!"
+	var ht = document.getElementById("which").value;
+	//console.log(ht);
+	//console.log(cookie.value);
+	//var oldName = cookie.name;
+	cookie.name = i+ " " + cookie.name + " ";
+	cookie.value = ht;
 	console.log(cookie.name + ": " + cookie.value);
+	//console.log(cookie);
 	i++;
 	}
 	}
-    var getting = browser.cookies.getAll({});
-	/*Function is called based on button pressed*/
-	if (e.target.classList.contains("clear")) {
+	function logCookies(cookies) {
+	var j = 1;
+    for (let cookie of cookies) {
+	//console.log(cookie);
+    console.log(j + " " + cookie.name + " : " + cookie.value + "\n");
+	j++
+    }
+    }
+	var getting;
+	var GettingaFew;
+	if (e.target.classList.contains("mod")) {
+	getting = browser.cookies.getAll({});
 	getting.then(rewriteCookieValues)
 	}
     else if (e.target.classList.contains("log")) {
+	getting = browser.cookies.getAll({});
 	getting.then(logCookies);
+    }
+	else if (e.target.classList.contains("specific")) {
+	var who = document.getElementById("who").value;
+	gettingaFew = browser.cookies.getAll({name:who});
+	gettingaFew.then(rewriteCookieValues);
     }
     });
 	

@@ -11,7 +11,8 @@
 
   "permissions": [
  "cookies",
- "<all_urls>"
+ "<all_urls>",
+ "activeTab"
   ],
 
   "browser_action": {
