@@ -2,7 +2,16 @@
  
  This public repository is used to publish a FireFox web extension that is used to delete cookies with the "cookies" JavaScript API.
  
- It is currently able tol modify cookies temporarily without the use of an API.
+ It is currently able to modify cookies temporarily without the use of an API.
+ 
+ ## How to use this web extension
+ 
+ The button "LOG COOKIES" will send names and values of your cookies to the user's browser log (ctrl+shift+J).
+ 
+ The "CHANGE COOKIES" button will rewrite all cookies with the value that is provided in the middle bar. 
+ Its changes are kept within the extension, for now.
+ 
+ the "BE MORE SPECIFIC" button allows the user to specify the name of the cookie they would like to temporarily rewrite.
  
  ## API information
  
@@ -27,11 +36,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
  
  Right now the functionality this project includes is to:
  
-  - Provide logs of all cookie names values when  "LOG COOKIES" is pressed.<br />
-  - Provide a button that says "CHANGE COOKIES" that modifies cookies temporarily.
+  - Provide logs of all cookie names values when  "LOG COOKIES" is clicked.<br />
+  - Provide a button that says "CHANGE COOKIES" that modifies cookies temporarily.<br />
+  - Allow user to change specific cookies by name.
   
  ### Next steps for the project:
  
-  - Provide more specific methods of cookie modification and user control<br />
+  - Provide more methods of cookie modification and user control<br />
   - Create a new method of showing the user cookie values and information<br />
   - Continue to migrate away from API style of code
