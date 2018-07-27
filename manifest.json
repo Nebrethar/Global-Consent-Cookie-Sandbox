@@ -12,7 +12,9 @@
   "permissions": [
  "cookies",
  "<all_urls>",
- "browsingData"
+ "browsingData",
+ "activeTab",
+ "webNavigation"
  ],
 
   "browser_action": {
