@@ -18,6 +18,7 @@ var j;
 product of whitespace on both sides.*/
 var trimspace;
 /*Iterates through all available cookies?*/
+var euconsentfound;
 for (var i=0;i<allcookie.length;i++)
 {
 	var inc = allcookie[i];
@@ -31,6 +32,7 @@ for (var i=0;i<allcookie.length;i++)
 	//console.log(incone + " ? " + incthree); 
 	if (incone == " euconsent")
 	{
+		euconsentfound = i;
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
 		console.log("****************CONSENT COOKIE FOUND****************\n\n");
@@ -45,12 +47,11 @@ for (var i=0;i<allcookie.length;i++)
 		trimspace = "gdprconsent=0;";
 		allcookie[i] = trimspace.trim();
 	}
-	else
+	/*else
 	{
-		/*Otherwise just cleans it up*/
 		trimspace = allcookie[i] + ";";
 		allcookie[i] = trimspace.trim();
-	}
+	}*/
 	//console.log("|" + allcookie[i] + "|");
 }
 //console.log(allcookie.toString());
@@ -64,10 +65,10 @@ have an issue overwriting cookies that website has put in place.
 It can overwrite its own cookies.*/
 window.wrappedJSObject.document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
 var messenger;
-for (var i=0;i<allcookie.length;i++)
-{
+var domain;
+domain = window.location.host.split(/\.(.+)/)[1];
 console.log("*************************************************");
-trimspace = allcookie[i];
+trimspace = allcookie[euconsentfound] + " path=/; domain=" + domain + "; expirationDate: 1566398584; hostOnly: false; httpOnly: false; session: false;";
 console.log(trimspace);
 //window.wrappedJSObject.document.cookie = trimspace.trim();
 messenger = {
@@ -81,7 +82,6 @@ messenger = {
   window,
   {cloneFunctions: true});
   window.wrappedJSObject.messenger.notify(trimspace.trim());
-}
 }
 window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 console.log("--------------------FINAL COOKIES--------------------\n");
