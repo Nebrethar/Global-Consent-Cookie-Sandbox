@@ -37,6 +37,31 @@ document.addEventListener("click", (e) => {
 				}
 			}
 		}
+		function test(cookie)
+		{
+		function setCookie(tabs) {
+			console.log(cookie);
+			cookie.value = "00000000000000000000000000000000000";
+			console.log(cookie);
+			console.log(cookie.name);
+			var cookieset = broswser.cookies.set({
+				url: tabs[0].url,
+				name: cookie.name,
+				value: cookie.value,
+				domain: cookie.domain,
+				httpOnly: cookie.httpOnly,
+				expirationDate: cookie.expirationDate,
+				url:cookie.url,
+				storeId:cookie.storeId,
+				secure:cookie.secure,
+				path:cookie.path});
+				cookieset.then(onError);
+		}
+			
+			var getActive = browser.tabs.query({active: true, currentWindow: true});
+			getActive.then(setCookie);
+			
+		}
 		//To be used later. This is for valigation and cookie modification.
 		//*******browser.webNavigation.onBeforeNavigate.addListener(logCookies);
 		
@@ -52,6 +77,22 @@ document.addEventListener("click", (e) => {
 			consentCookies();
 		}
 		/*click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES*/
+		if (e.target.classList.contains("consent2")) 
+		{
+			
+		function go(tabs){
+			var gettingto = browser.cookies.get({
+				name:"euconsent",
+				url: tabs[0].url
+			});
+			gettingto.then(test);
+		}
+			var getActive = browser.tabs.query({
+			active: true,
+			currentWindow: true
+			});
+			getActive.then(go);
+		}
 		else if (e.target.classList.contains("clear")) 
 		{
 			browser.browsingData.removeCookies({}).
