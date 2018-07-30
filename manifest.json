@@ -14,7 +14,14 @@
  "<all_urls>",
  "browsingData",
  "activeTab",
- "webNavigation"
+ "webNavigation",
+ "activeTab",
+    "contextualIdentities",
+    "tabs",
+    "storage",
+    "notifications",
+    "privacy",
+"alarms"
  ],
 
   "browser_action": {
