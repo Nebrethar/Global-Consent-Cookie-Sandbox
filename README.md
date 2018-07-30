@@ -2,6 +2,11 @@
 
  This public repository is used to publish a FireFox web extension.
  
+ This extension currently overwrites the first section of the Global Vendor Consent Cookie with 0's, in progress to a larger goal.<br />
+ Right now, it only overwrites on the current tab. All information from the extension can be seen on the Firefox log (Ctrl+Shift+J).<br />
+ There are also many commented console prints available in the code for debugging purposes.<br />
+ The code is currently sloppy, but it is not a finished product. Enjoy!
+ 
  ## How to install this web extension
  
  1. Download and unzip the package to a desired folder.<br />
@@ -17,19 +22,21 @@
  
  The button "LOG COOKIES" will send names and values of your cookies to the user's browser log (ctrl+shift+J).
  
- The button "CONSENT COOKIES" will look for consent cookies and attempt to overwrite them.
+ The button "CHECK GVCC" will list only cookies named "euconsent".
  
  The button "CLEAR COOKIES" will remove all cookies from the browser.
  
+ The button "MODIFY GVCC" will write the first section of the GVCC value over with 0's
+ 
  ## API information
  
- APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
+ Javascript APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
  
  APIs used:
  
  -cookies<br />
  -tabs<br />
- -browsingData (for debugging)
+ -browsingData
  
  ## Licensing and Copyright
  

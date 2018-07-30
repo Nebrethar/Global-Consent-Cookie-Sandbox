@@ -1,6 +1,4 @@
 finish = function finish(){
-//Credit to Sam Deering for the original code for this sleep function
-https://www.sitepoint.com/delay-sleep-pause-wait/
 var value = (value + "=");
 //console.log("\n\n**********************************************\n\n");
 //console.log("--------------------ORIGINAL COOKIES--------------------");
