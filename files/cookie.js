@@ -70,34 +70,6 @@ document.addEventListener("click", (e) => {
 				{
 			console.log(cookie);
 				}
-			var cookieset = browser.cookies.set({
-				name: cookie.name,
-				value: "00000000000000000000000000000000000",
-				domain: cookie.domain,
-				httpOnly: cookie.httpOnly,
-				expirationDate: cookie.expirationDate,
-				url:cookie.url,
-				storeId:cookie.storeId,
-				secure:cookie.secure,
-				path:cookie.path});
-				console.log("STEP 1");
-			var cookierem = browser.cookies.remove({
-				url: cookie.url,
-				name: cookie.name});
-			console.log(cookie);
-			console.log(cookie.name);
-			cookierem.then(    () => {
-        console.log('Removed!');
-			}
-		).catch(
-		(aReason) => {
-        console.log('Failed to remove cookie', aReason);
-			}
-		);
-		var gettingto = browser.cookies.get({
-				name:"euconsent",
-				url: cookie.url
-			});
 		}
 		//To be used later. This is for valigation and cookie modification.
 		//*******browser.webNavigation.onBeforeNavigate.addListener(logCookies);
@@ -145,45 +117,56 @@ document.addEventListener("click", (e) => {
 		}
 		if (e.target.classList.contains("remove")) 
 		{
+			function scrip(){
+			browser.tabs.executeScript({
+			file: "write-cookie.js"
+			});
+			}
 			function again()
 			{
 			var gettingagain = browser.cookies.getAll({
-				name:"euconsent",
+				name:"euconsent"
 			});
 			gettingagain.then(removeGVCC);
 			}
 			function removeGVCC(cookies)
 			{
-									scrip();
+				if (cookies === undefined || cookies.length == 0) {
+				console.log("No GVCC found!");
+			}
+			else
+			{
+				scrip();
 				function didit(){
-					console.log("DID IT");
+					//console.log("STANDARD GVCC REMOVED");
 					}
 					function whynot(error){
 					console.log(error);
 					}
-							function scrip(){
-					browser.tabs.executeScript({
-					file: "write-cookie.js"
-					});
 					}
 					for (let cookie of cookies)
 					{
 					if (cookie.value != "00000000000000000000000000000000000")
 					{
+					function removeCookies(tabs)
+					{
 					var cookierem = browser.cookies.remove({
 						//Works on one site. Still have to figure out domain issues.
-						url: "https://www.independent.co.uk/us?CMP=ILC-refresh",
+						url: tabs[0].url,
 						name: "euconsent"
 						});
-					
 					cookierem.then(didit, whynot);
 					}
-					else
-					{
-					console.log("****************OVERWRITTEN COOKIE FOUND****************");
+					var getActive = browser.tabs.query({
+					active: true,
+					currentWindow: true
+					});
+					getActive.then(removeCookies);
 					}
 					}
-			}
+					}
+			//scrip();
+			again();
 			again();
 		}
-});
+		});

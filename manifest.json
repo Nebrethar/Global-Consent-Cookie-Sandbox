@@ -9,6 +9,12 @@
     "48": "icons/cookie-48.png"
   },
 
+    "background": {
+    "scripts": [
+      "files/background.js"
+	]
+},
+  
   "permissions": [
  "cookies",
  "<all_urls>",
