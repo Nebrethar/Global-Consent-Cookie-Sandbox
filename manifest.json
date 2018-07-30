@@ -11,7 +11,7 @@
 
     "background": {
     "scripts": [
-      "files/background.js"
+      "extension-files/background.js"
 	]
 },
   
@@ -20,20 +20,13 @@
  "<all_urls>",
  "browsingData",
  "activeTab",
- "webNavigation",
- "activeTab",
-    "contextualIdentities",
-    "tabs",
-    "storage",
-    "notifications",
-    "privacy",
-"alarms"
+ "tabs"
  ],
 
   "browser_action": {
     "default_icon": "icons/cookie-32.png",
     "default_title": "Cookie Web Extension",
-    "default_popup": "files/cookie.html"
+    "default_popup": "extension-files/cookie.html"
   },
 
   "icons": {

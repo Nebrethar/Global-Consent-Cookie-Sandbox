@@ -4,70 +4,6 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 */
 
 document.addEventListener("click", (e) => {
-	/*var consentStr;
-		//https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS
-	function consent ()
-			{
-				
-			var = require('consent-string');
-			var moduleName = 'consent-string';
-			require([moduleName], function(ConsentString){
-			const consentData = new ConsentString();
-
-			// Set the global vendor list
-			// You need to download and provide the vendor list yourself
-			consentData.setGlobalVendorList(vendorList);
-
-			// Set the consent data
-			consentData.setCmpId(1);
-			consentData.setCmpVersion(1);
-			consentData.setConsentScreen(1);
-			consentData.setConsentLanguage('en');
-			consentData.setPurposesAllowed([1, 2, 4]);
-			consentData.setVendorsAllowed([1, 24, 245]);
-
-			// Encode the data into a web-safe base64 string
-			consentStr = consentData.getConsentString();
-			console.log(consentStr);
-			})
-			}
-			consent();
-		//https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS
-		*/
-		function consentCookies(cookie) 
-		{
-		function go()
-		{
-		function scrip(){
-			browser.tabs.executeScript({
-			file: "write-cookie.js"
-			});
-		}
-			scrip();
-		function del(cookie){
-		var cookierem = browser.cookies.remove({
-			url: tabs[0].url,
-			name: "euconsent"
-		});
-			cookierem.then(    () => {
-        console.log('Removed!');
-			}
-		).catch(
-		(aReason) => {
-        console.log('Failed to remove cookie', aReason);
-			}
-		);
-		//del(cookie);
-
-		}
-		}
-		var getActive = browser.tabs.query({
-			active: true,
-			currentWindow: true
-			});
-		getActive.then(go);
-
-		}
 		//These functions are for when cookies are cleared (see bottom)
 		function onRemoved() {
 			console.log("Removed!");
@@ -109,22 +45,6 @@ document.addEventListener("click", (e) => {
 		{
 			var getting = browser.cookies.getAll({});
 			getting.then(logCookies);
-		}
-		/*click "CONSENT COOKIES"*/
-		if (e.target.classList.contains("consent")) 
-		{
-			function go(tabs){
-			var gettingto = browser.cookies.get({
-				name:"euconsent",
-				url: tabs[0].url
-			});
-			gettingto.then(consentCookies);
-		}
-			var getActive = browser.tabs.query({
-			active: true,
-			currentWindow: true
-			});
-			getActive.then(go);
 		}
 		/*click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES*/
 		if (e.target.classList.contains("consent2"))			
@@ -220,6 +140,6 @@ document.addEventListener("click", (e) => {
 			//scrip();
 			again();
 			again();
-			console.log("GVCC MODIFIED");
+			console.log("SOMETHING HAPPENED");
 		}
 		});
