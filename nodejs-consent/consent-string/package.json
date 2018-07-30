@@ -1,0 +1,80 @@
+{
+  "_from": "consent-string",
+  "_id": "consent-string@1.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-qrU2xdTWxLfoS8k8CYgv1TDODSGd/gLopZfCff4KZ1+hsJaCLi4PsrlqqdN6x+MxsU4BoRoHkOSC2dGjXuQzjQ==",
+  "_location": "/consent-string",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "consent-string",
+    "name": "consent-string",
+    "escapedName": "consent-string",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/consent-string/-/consent-string-1.2.4.tgz",
+  "_shasum": "f3bc8c1afc0f7f81802178dffea3afb25ec5fc3b",
+  "_spec": "consent-string",
+  "_where": "C:\\Users\\Nebre\\Downloads",
+  "bundleDependencies": false,
+  "dependencies": {
+    "base-64": "^0.1.0"
+  },
+  "deprecated": false,
+  "description": "Encode and decode web-safe base64 consent information with the IAB EU's GDPR Transparency and Consent Framework",
+  "devDependencies": {
+    "@59naga/babel-plugin-transform-array-from": "0.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-es2015-object-super": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.0.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "jsdoc": "^3.5.5",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.2",
+    "sinon": "^4.5.0"
+  },
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "files": [
+    "dist/"
+  ],
+  "homepage": "https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS",
+  "keywords": [
+    "consent",
+    "gdpr",
+    "iab"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "consent-string",
+  "scripts": {
+    "build": "babel src --out-dir dist && cp src/index.d.ts dist/",
+    "coverage": "nyc --reporter=html --reporter=text-summary --reporter=lcov --check-coverage --lines 60 --functions 60 --branches 60 mocha test/ --recursive",
+    "docs": "jsdoc -c .jsdoc.js -r",
+    "lint": "eslint src/. test/.",
+    "release": "npm run build && npm publish --access public",
+    "test": "mocha test/ --recursive"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.2.4"
+}
