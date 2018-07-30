@@ -3,7 +3,8 @@
  This public repository is used to publish a FireFox web extension.
  
  This extension currently overwrites the first section of the Global Vendor Consent Cookie with 0's, in progress to a larger goal.<br />
- Right now, it only overwrites on the current tab. All information from the extension can be seen on the Firefox log (Ctrl+Shift+J).<br />
+ Right now, it only overwrites on the current tab. All information from the extension<br />
+ can be seen on the Firefox log (Ctrl+Shift+J).<br />
  There are also many commented console prints available in the code for debugging purposes.<br />
  The code is currently sloppy, but it is not a finished product. Enjoy!
  
