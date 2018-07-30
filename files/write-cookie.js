@@ -1,6 +1,9 @@
+finish = function finish(){
+//Credit to Sam Deering for the original code for this sleep function
+https://www.sitepoint.com/delay-sleep-pause-wait/
 var value = (value + "=");
-console.log("\n\n**********************************************\n\n");
-console.log("--------------------ORIGINAL COOKIES--------------------");
+//console.log("\n\n**********************************************\n\n");
+//console.log("--------------------ORIGINAL COOKIES--------------------");
 /*pulls all cookies from the current tab.
 Uses a WrappedJSObject to work at the browser level.
 NOTE - I would like to see about pulling more 
@@ -9,7 +12,7 @@ var decodedCookie = window.wrappedJSObject.document.cookie;
 /*separates cookies into an array by their separating ";"*/
 var allcookie = decodedCookie.split(';');
 /*Just shows the current state of the cookie.*/
-console.log(window.wrappedJSObject.document.cookie + "\n");
+//console.log(window.wrappedJSObject.document.cookie + "\n");
 /*For if a GVCC is found (by name "euconsent")*/
 var found = false;
 /*counter for logging*/
@@ -23,8 +26,8 @@ for (var i=0;i<allcookie.length;i++)
 {
 	var inc = allcookie[i];
 	j = i+1;
-	console.log("\n---------------COOKIE " + j + "---------------");
-	console.log(inc);
+	//console.log("\n---------------COOKIE " + j + "---------------");
+	//console.log(inc);
 	var incsplit = inc.split('=');
 	/*Name and value. HERE THEY ARE IN FORMAT NAME=VALUE*/
 	var incone = incsplit[0];
@@ -55,21 +58,23 @@ for (var i=0;i<allcookie.length;i++)
 	//console.log("|" + allcookie[i] + "|");
 }
 //console.log(allcookie.toString());
+
 if (found)
 {
-console.log("\n--------------------REPLACE THE VALUE--------------------\n");
-console.log("\n");
+found = function found(){
+//console.log("\n--------------------REPLACE THE VALUE--------------------\n");
+//console.log("\n");
 /*Replaces the cookie value with the edited cookie string. (It is supposed to).
 Logs every cookie going in as a separate document.cookie and seems to
 have an issue overwriting cookies that website has put in place.
 It can overwrite its own cookies.*/
-window.wrappedJSObject.document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
+//window.wrappedJSObject.document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
 var messenger;
 var domain;
 domain = window.location.host.split(/\.(.+)/)[1];
-console.log("*************************************************");
+//console.log("*************************************************");
 trimspace = allcookie[euconsentfound] + " path=/; domain=" + domain + "; expirationDate: 1566398584; hostOnly: false; httpOnly: false; session: false;";
-console.log(trimspace);
+//console.log(trimspace);
 //window.wrappedJSObject.document.cookie = trimspace.trim();
 messenger = {
   notify: function(message) {
@@ -83,6 +88,13 @@ messenger = {
   {cloneFunctions: true});
   window.wrappedJSObject.messenger.notify(trimspace.trim());
 }
-window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
-console.log("--------------------FINAL COOKIES--------------------\n");
-console.log(window.wrappedJSObject.document.cookie);
+setTimeout(found, 1000);
+found();
+}
+}
+//window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
+//console.log("--------------------FINAL COOKIES--------------------\n");
+//console.log(window.wrappedJSObject.document.cookie);
+setTimeout(finish, 1000);
+finish();
+//console.log(window.wrappedJSObject.document.cookie);
