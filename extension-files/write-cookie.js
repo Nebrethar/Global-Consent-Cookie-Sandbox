@@ -26,20 +26,21 @@ for (var i=0;i<allcookie.length;i++)
 {
 	var inc = allcookie[i];
 	j = i+1;
-	//console.log("\n---------------COOKIE " + j + "---------------");
-	//console.log(inc);
 	var incsplit = inc.split('=');
-	/*Name and value. HERE THEY ARE IN FORMAT NAME=VALUE*/
+	/*HERE THEY ARE IN FORMAT NAME=VALUE*/
 	var incone = incsplit[0];
-	//var inctwo = incsplit[1];
+	var inctwo = incsplit[1];
 	//console.log(incone + " ? " + incthree); 
+	var GVCCTicket = inctwo.split('-');
+	var last = GVCCTicket[GVCCTicket.length-1]
 	if (incone == " euconsent")
 	{
 		euconsentfound = i;
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
 		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-		trimspace = "euconsent=00000000000000000000000000000000000;";
+		trimspace = "euconsent=00000000000000000000000000000000000-" + last + ";";
+		//console.log(trimspace);
 		allcookie[i] = trimspace.trim();
 	}
 	else if (incone == " gdprconsent")

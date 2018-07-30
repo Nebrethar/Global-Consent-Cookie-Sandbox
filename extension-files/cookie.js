@@ -4,6 +4,36 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 */
 
 document.addEventListener("click", (e) => {
+	/*var consentStr;
+		//https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS
+	function consent ()
+			{
+				
+			var = require('consent-string');
+			var moduleName = 'consent-string';
+			require([moduleName], function(ConsentString){
+			const consentData = new ConsentString();
+
+			// Set the global vendor list
+			// You need to download and provide the vendor list yourself
+			consentData.setGlobalVendorList(vendorList);
+
+			// Set the consent data
+			consentData.setCmpId(1);
+			consentData.setCmpVersion(1);
+			consentData.setConsentScreen(1);
+			consentData.setConsentLanguage('en');
+			consentData.setPurposesAllowed([1, 2, 4]);
+			consentData.setVendorsAllowed([1, 24, 245]);
+
+			// Encode the data into a web-safe base64 string
+			consentStr = consentData.getConsentString();
+			console.log(consentStr);
+			})
+			}
+			consent();
+		//https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS
+		*/
 		function consentCookies(cookie) 
 		{
 		function go()
@@ -146,6 +176,28 @@ document.addEventListener("click", (e) => {
 					}
 					for (let cookie of cookies)
 					{
+						//ex BORuR6lORuR6lAKACBENBY-AAAAfRxNACIgCAoKwQMgBAgACAACAGCAAQAAAAgIAAAAAAAABCAAAAAAAQQEAAQACCAAAAAAAAAAAAAAAAAAAAAAAAA
+					var cookieValue = cookie.value.split('-');
+					console.log(cookieValue);
+					var cookiein = "";
+					var cookieout;
+					for (var i=0;i<cookieValue.length;i++)
+					{
+					if (i < cookieValue.length - 2)
+					{
+						cookiein = cookiein + cookieValue[i] + "-";
+					}
+					else if (i < cookieValue.length - 1)
+					{
+						cookiein = cookiein + cookieValue[i];
+					}
+					else
+					{
+						cookieout = cookieValue[i];
+					}
+					}
+					console.log("cookiein: " + cookiein);
+					console.log("cookieout: " + cookieout);
 					if (cookie.value != "00000000000000000000000000000000000")
 					{
 					function removeCookies(tabs)
@@ -168,5 +220,6 @@ document.addEventListener("click", (e) => {
 			//scrip();
 			again();
 			again();
+			console.log("GVCC MODIFIED");
 		}
 		});
