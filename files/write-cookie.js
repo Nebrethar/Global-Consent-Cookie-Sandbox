@@ -38,7 +38,7 @@ for (var i=0;i<allcookie.length;i++)
 		euconsentfound = i;
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
-		console.log("****************CONSENT COOKIE FOUND****************\n\n");
+		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
 		trimspace = "euconsent=00000000000000000000000000000000000;";
 		allcookie[i] = trimspace.trim();
 	}
@@ -46,7 +46,7 @@ for (var i=0;i<allcookie.length;i++)
 	{
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
-		console.log("****************CONSENT COOKIE FOUND****************\n\n");
+		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
 		trimspace = "gdprconsent=0;";
 		allcookie[i] = trimspace.trim();
 	}
