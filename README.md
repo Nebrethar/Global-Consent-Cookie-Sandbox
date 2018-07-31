@@ -1,6 +1,6 @@
  # Global Consent Cookie Sandbox
 
- This public repository is used to publish a FireFox web extension.
+ This public repository is used to publish a Firefox web extension.
  
  This extension currently overwrites the first section of the Global Vendor Consent Cookie with 0's, in progress to a larger goal.<br />
  Right now, it only overwrites on the current tab. All information from the extension<br />
