@@ -1,7 +1,7 @@
 const { ConsentString } = require('./consent-string');
 
 const consentData = new ConsentString();
-
+		var  vendorList  = require('./vendorlist.json');
 			// Set the global vendor list
 			// You need to download and provide the vendor list yourself
 			consentData.setGlobalVendorList(vendorList);
@@ -15,3 +15,5 @@ const consentData = new ConsentString();
 			consentData.setVendorsAllowed([]);
 			// Encode the data into a web-safe base64 string
 			console.log(consentData.getConsentString());
+			
+			//End value for {1,1,1,'en',[],[]} is BORxCNvORxCNvABABBENBZAAAAAfaAAA

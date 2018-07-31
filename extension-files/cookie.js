@@ -67,10 +67,6 @@ document.addEventListener("click", (e) => {
 		}
 		if (e.target.classList.contains("remove")) 
 		{
-			function scrip(){
-			browser.tabs.executeScript({
-			file: "write-cookie.js"
-			});
 			}
 			function again()
 			{
@@ -86,19 +82,19 @@ document.addEventListener("click", (e) => {
 			}
 			else
 			{
-				scrip();
-				function didit(){
-					//console.log("STANDARD GVCC REMOVED");
-					}
+				browser.tabs.executeScript({
+					file: "write-cookie.js"});	
+					function didit(){
+					console.log("Overwritten!");
+					}					
 					function whynot(error){
 					console.log(error);
-					}
 					}
 					for (let cookie of cookies)
 					{
 						//ex BORuR6lORuR6lAKACBENBY-AAAAfRxNACIgCAoKwQMgBAgACAACAGCAAQAAAAgIAAAAAAAABCAAAAAAAQQEAAQACCAAAAAAAAAAAAAAAAAAAAAAAAA
 					var cookieValue = cookie.value.split('-');
-					console.log(cookieValue);
+					//console.log(cookieValue);
 					var cookiein = "";
 					var cookieout;
 					for (var i=0;i<cookieValue.length;i++)
@@ -116,10 +112,11 @@ document.addEventListener("click", (e) => {
 						cookieout = cookieValue[i];
 					}
 					}
-					console.log("cookiein: " + cookiein);
-					console.log("cookieout: " + cookieout);
-					if (cookie.value != "00000000000000000000000000000000000")
+					//console.log("cookiein: " + cookiein);
+					//console.log("cookieout: " + cookieout);
+					if (cookiein != "BORxCNvORxCNvABABBENBZAAAAAfaAAA")
 					{
+					console.log("Rewrite!");
 					function removeCookies(tabs)
 					{
 					var cookierem = browser.cookies.remove({
@@ -129,17 +126,15 @@ document.addEventListener("click", (e) => {
 						});
 					cookierem.then(didit, whynot);
 					}
+					}
 					var getActive = browser.tabs.query({
 					active: true,
 					currentWindow: true
 					});
 					getActive.then(removeCookies);
 					}
-					}
-					}
-			//scrip();
+			}
+			}
 			again();
 			again();
-			console.log("SOMETHING HAPPENED");
-		}
 		});

@@ -7,6 +7,7 @@ Uses a WrappedJSObject to work at the browser level.
 NOTE - I would like to see about pulling more 
 than just the current tab's cookies in the future.*/
 var decodedCookie = window.wrappedJSObject.document.cookie;
+console.log("1");
 /*separates cookies into an array by their separating ";"*/
 var allcookie = decodedCookie.split(';');
 /*Just shows the current state of the cookie.*/
@@ -37,7 +38,7 @@ for (var i=0;i<allcookie.length;i++)
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
 		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-		trimspace = "euconsent=00000000000000000000000000000000000-" + last + ";";
+		trimspace = "euconsent=BORxCNvORxCNvABABBENBZAAAAAfaAAA-" + last + ";";
 		//console.log(trimspace);
 		allcookie[i] = trimspace.trim();
 	}
@@ -86,14 +87,15 @@ messenger = {
   window,
   {cloneFunctions: true});
   window.wrappedJSObject.messenger.notify(trimspace.trim());
+  console.log("3");
 }
-setTimeout(found, 1000);
+setTimeout(found, 2500);
 found();
 }
 }
 //window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 //console.log("--------------------FINAL COOKIES--------------------\n");
 //console.log(window.wrappedJSObject.document.cookie);
-setTimeout(finish, 1000);
+//setTimeout(finish, 1500);
 finish();
 //console.log(window.wrappedJSObject.document.cookie);
