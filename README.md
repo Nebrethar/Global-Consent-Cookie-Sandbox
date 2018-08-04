@@ -8,16 +8,20 @@
  There are also many commented console prints available in the code for debugging purposes.<br />
  The code is currently sloppy, but it is not a finished product. Enjoy!
  
- ## How to install this web extension
+ ## How to install this web extension (First Steps)
  
- 1. Download and unzip the package to a desired folder.<br />
- 2. Press Ctrl+Shift+A anywhere on Firefox <br />
- 3. Select the puzzle piece on your left to go to your Extensions menu<br />
- 4. Click the gear top of your window and select "Debug Add-ons"<br />
- 5. Make sure the "Enable Add-on Debugging" box is checked<br />
- 6. Click "Load Temporary Add-On<br />
- 7. Navigate to your manifest file and open it.<br />
- 8. Enjoy the extension and submit any error reports to this Issues page!
+ 1. Download this repository to a location of your choice.
+ 2. Install Web-Ext from Mozilla's Github Repository here: https://github.com/mozilla/web-ext
+ 
+ ### Install: Windows
+ 
+ 1. Open your command prompt - Select "Run as Administrator"
+ 2. Navigate to the main directory of this web extension
+ 3. Provide this command to your computer:
+ '''
+   web-ext run
+ '''
+ 4. The web extension should appear in the top right corner as a "cookie" icon.
  
   ## How to use this web extension
  
