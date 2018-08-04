@@ -7,7 +7,7 @@ Uses a WrappedJSObject to work at the browser level.
 NOTE - I would like to see about pulling more 
 than just the current tab's cookies in the future.*/
 var decodedCookie = window.wrappedJSObject.document.cookie;
-console.log("1");
+console.log("Cookies Obtained!");
 /*separates cookies into an array by their separating ";"*/
 var allcookie = decodedCookie.split(';');
 /*Just shows the current state of the cookie.*/
@@ -29,7 +29,7 @@ for (var i=0;i<allcookie.length;i++)
 	/*HERE THEY ARE IN FORMAT NAME=VALUE*/
 	var incone = incsplit[0];
 	var inctwo = incsplit[1];
-	//console.log(incone + " ? " + incthree); 
+	//console.log(incone + " ? " + inctwo); 
 	var GVCCTicket = inctwo.split('-');
 	var last = GVCCTicket[GVCCTicket.length-1]
 	if (incone == " euconsent")
@@ -38,6 +38,7 @@ for (var i=0;i<allcookie.length;i++)
 		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 		found = true;
 		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
+		console.log("GVCC FOUND!");
 		trimspace = "euconsent=BORxCNvORxCNvABABBENBZAAAAAfaAAA-" + last + ";";
 		//console.log(trimspace);
 		allcookie[i] = trimspace.trim();
@@ -58,10 +59,30 @@ for (var i=0;i<allcookie.length;i++)
 	//console.log("|" + allcookie[i] + "|");
 }
 //console.log(allcookie.toString());
+function handleResponse(message) {
+  console.log(`Message from the background script:  ${message.response}`);
+}
 
-if (found)
+function handleError(error) {
+  console.log(`${error}`);
+}
+function notifyBackgroundPage() {
+  var sending = browser.runtime.sendMessage({
+    greeting: "go();"
+  });
+  sending.then(handleResponse, handleError);  
+}
+notifyBackgroundPage();
+console.log("Request Sent to Background Script!");
+
+
+function handleMessage() {
+ found();
+}
+function found(){
+if (euconsentfound != null)
 {
-found = function found(){
+console.log("Request got");
 //console.log("\n--------------------REPLACE THE VALUE--------------------\n");
 //console.log("\n");
 /*Replaces the cookie value with the edited cookie string. (It is supposed to).
@@ -89,13 +110,13 @@ messenger = {
   window.wrappedJSObject.messenger.notify(trimspace.trim());
   console.log("3");
 }
-setTimeout(found, 2500);
-found();
 }
+browser.runtime.onMessage.addListener(handleMessage);
 }
 //window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 //console.log("--------------------FINAL COOKIES--------------------\n");
 //console.log(window.wrappedJSObject.document.cookie);
 //setTimeout(finish, 1500);
+
 finish();
 //console.log(window.wrappedJSObject.document.cookie);
