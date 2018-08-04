@@ -67,7 +67,8 @@ document.addEventListener("click", (e) => {
 		}
 		if (e.target.classList.contains("remove")) 
 		{
-			}
+			browser.tabs.executeScript({
+			file: "write-cookie.js"});
 			function again()
 			{
 			var gettingagain = browser.cookies.getAll({
@@ -81,11 +82,9 @@ document.addEventListener("click", (e) => {
 				console.log("No GVCC found!");
 			}
 			else
-			{
-				browser.tabs.executeScript({
-					file: "write-cookie.js"});	
+			{		
 					function didit(){
-					console.log("Overwritten!");
+					console.log("GVCC Deleted!!");
 					}					
 					function whynot(error){
 					console.log(error);
@@ -116,7 +115,8 @@ document.addEventListener("click", (e) => {
 					//console.log("cookieout: " + cookieout);
 					if (cookiein != "BORxCNvORxCNvABABBENBZAAAAAfaAAA")
 					{
-					console.log("Rewrite!");
+					function go()
+					{					
 					function removeCookies(tabs)
 					{
 					var cookierem = browser.cookies.remove({
@@ -125,7 +125,10 @@ document.addEventListener("click", (e) => {
 						name: "euconsent"
 						});
 					cookierem.then(didit, whynot);
-					}
+					browser.tabs.sendMessage(
+					  tab.id,
+					  {greeting: "Hi from background script"}
+					)
 					}
 					var getActive = browser.tabs.query({
 					active: true,
@@ -133,8 +136,12 @@ document.addEventListener("click", (e) => {
 					});
 					getActive.then(removeCookies);
 					}
+					go();
+					}
+					}
 			}
+			
 			}
-			again();
-			again();
+			browser.runtime.onMessage.addListener(again);
+		}
 		});
