@@ -116,7 +116,6 @@ document.addEventListener("click", (e) => {
 					//console.log("cookieout: " + cookieout);
 					if (cookiein != "BORxCNvORxCNvABABBENBZAAAAAfaAAA")
 					{
-					console.log("Rewrite!");
 					function removeCookies(tabs)
 					{
 					var cookierem = browser.cookies.remove({
@@ -134,7 +133,8 @@ document.addEventListener("click", (e) => {
 					getActive.then(removeCookies);
 					}
 			}
+			again();
+			again();
 			}
-			again();
-			again();
+			
 		});
