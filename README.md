@@ -2,7 +2,7 @@
 
  This public repository is used to publish a Firefox web extension.
  
- This extension currently overwrites the first section of the Global Vendor Consent Cookie with 0's, in progress to a larger goal.<br />
+ This extension currently overwrites the first section of the Global Vendor Consent Cookie in progress to a larger goal.<br />
  Right now, it only overwrites on the current tab. All information from the extension<br />
  can be seen on the Firefox log (Ctrl+Shift+J).<br />
  There are also many commented console prints available in the code for debugging purposes.<br />
@@ -18,9 +18,9 @@
  1. Open your command prompt - Select "Run as Administrator"
  2. Navigate to the main directory of this web extension
  3. Provide this command to your computer:
- '''
+ ```
    web-ext run
- '''
+ ```
  4. The web extension should appear in the top right corner as a "cookie" icon.
  
   ## How to use this web extension
