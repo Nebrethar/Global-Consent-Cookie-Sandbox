@@ -31,7 +31,7 @@ for (var i=0;i<allcookie.length;i++)
 	var inctwo = incsplit[1];
 	//console.log(incone + " ? " + inctwo); 
 	var GVCCTicket = inctwo.split('-');
-	var last = GVCCTicket[GVCCTicket.length-1]
+	var last = GVCCTicket[GVCCTicket.length-1];
 	if (incone == " euconsent")
 	{
 		euconsentfound = i;
@@ -39,7 +39,7 @@ for (var i=0;i<allcookie.length;i++)
 		found = true;
 		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
 		console.log("GVCC FOUND!");
-		trimspace = "euconsent=BORxCNvORxCNvABABBENBZAAAAAfaAAA-" + last + ";";
+		trimspace = "euconsent=BOSCllVOSCllVABABBENBZAAAAAfaAAA-" + last + ";";
 		//console.log(trimspace);
 		allcookie[i] = trimspace.trim();
 	}
@@ -59,30 +59,21 @@ for (var i=0;i<allcookie.length;i++)
 	//console.log("|" + allcookie[i] + "|");
 }
 //console.log(allcookie.toString());
-function handleResponse(message) {
-  console.log(`Message from the background script:  ${message.response}`);
-}
 
 function handleError(error) {
-  console.log(`${error}`);
 }
 function notifyBackgroundPage() {
   var sending = browser.runtime.sendMessage({
     greeting: "go();"
   });
-  sending.then(handleResponse, handleError);  
+  sending.then(handleError); 
 }
 notifyBackgroundPage();
-console.log("Request Sent to Background Script!");
+//console.log("Request Sent to Background Script!");
 
-
-function handleMessage() {
- found();
-}
-function found(){
-if (euconsentfound != null)
+go = function(){
+if (found)
 {
-console.log("Request got");
 //console.log("\n--------------------REPLACE THE VALUE--------------------\n");
 //console.log("\n");
 /*Replaces the cookie value with the edited cookie string. (It is supposed to).
@@ -108,15 +99,16 @@ messenger = {
   window,
   {cloneFunctions: true});
   window.wrappedJSObject.messenger.notify(trimspace.trim());
-  console.log("3");
+  console.log("GVCC Written!");
 }
-}
-browser.runtime.onMessage.addListener(handleMessage);
-}
+};
+var ok = setTimeout(go, 1500);
+ok;
+};
 //window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 //console.log("--------------------FINAL COOKIES--------------------\n");
 //console.log(window.wrappedJSObject.document.cookie);
-//setTimeout(finish, 1500);
 
 finish();
+
 //console.log(window.wrappedJSObject.document.cookie);
