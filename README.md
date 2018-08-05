@@ -6,7 +6,7 @@
  Right now, it only overwrites on the current tab. All information from the extension<br />
  can be seen on the Firefox log (Ctrl+Shift+J).<br />
  There are also many commented console prints available in the code for debugging purposes.<br />
- The code is currently sloppy, but it is not a finished product. Enjoy!
+ The code is not a finished product. Enjoy!
  
  ## How to install this web extension (First Steps)
  
@@ -41,7 +41,8 @@
  
  -cookies<br />
  -tabs<br />
- -browsingData
+ -browsingData<br />
+ -runtime
  
  ## Licensing and Copyright
  
