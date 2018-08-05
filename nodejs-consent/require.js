@@ -16,4 +16,4 @@ const consentData = new ConsentString();
 			// Encode the data into a web-safe base64 string
 			console.log(consentData.getConsentString());
 			
-			//End value for {1,1,1,'en',[],[]} is BORxCNvORxCNvABABBENBZAAAAAfaAAA
+			//End value for {1,1,1,'en',[],[]} is BOSCllVOSCllVABABBENBZAAAAAfaAAA
