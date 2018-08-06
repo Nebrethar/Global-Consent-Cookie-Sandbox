@@ -1,109 +1,92 @@
-finish = function finish(){
-var value = (value + "=");
-//console.log("\n\n**********************************************\n\n");
-//console.log("--------------------ORIGINAL COOKIES--------------------");
-/*pulls all cookies from the current tab.
-Uses a WrappedJSObject to work at the browser level.
-NOTE - I would like to see about pulling more 
-than just the current tab's cookies in the future.*/
-var decodedCookie = window.wrappedJSObject.document.cookie;
-console.log("Cookies Obtained!");
-/*separates cookies into an array by their separating ";"*/
-var allcookie = decodedCookie.split(';');
-/*Just shows the current state of the cookie.*/
-//console.log(window.wrappedJSObject.document.cookie + "\n");
-/*For if a GVCC is found (by name "euconsent")*/
-var found = false;
-/*counter for logging*/
-var j;
-/*This is used to trim the finished 
-product of whitespace on both sides.*/
-var trimspace;
-/*Iterates through all available cookies?*/
-var euconsentfound;
-for (var i=0;i<allcookie.length;i++)
+finish = function finish()
 {
-	var inc = allcookie[i];
-	j = i+1;
-	var incsplit = inc.split('=');
-	/*HERE THEY ARE IN FORMAT NAME=VALUE*/
-	var incone = incsplit[0];
-	var inctwo = incsplit[1];
-	//console.log(incone + " ? " + inctwo); 
-	var GVCCTicket = inctwo.split('-');
-	var last = GVCCTicket[GVCCTicket.length-1];
-	if (incone == " euconsent")
+	var value = (value + "=");
+	var decodedCookie = window.wrappedJSObject.document.cookie;
+	console.log("Cookies Obtained!");
+	/*separates cookies into an array by their separating ";"*/
+	var allcookie = decodedCookie.split(';');
+	/*For if a GVCC is found (by name "euconsent")*/
+	var found = false;
+	/*This is used to trim the finished 
+	product of whitespace on both sides.*/
+	var trimspace;
+	/*Iterates through all available cookies?*/
+	var euconsentfound;
+	for (var i=0;i<allcookie.length;i++)
 	{
-		euconsentfound = i;
-		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
-		found = true;
-		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-		console.log("GVCC FOUND!");
-		trimspace = "euconsent=BOSCllVOSCllVABABBENBZAAAAAfaAAA-" + last + ";";
-		//console.log(trimspace);
-		allcookie[i] = trimspace.trim();
+		var inc = allcookie[i];
+		var incsplit = inc.split('=');
+		var incone = incsplit[0];
+		var inctwo = incsplit[1];
+		//console.log(incone + " ? " + inctwo); 
+		var GVCCTicket = inctwo.split('-');
+		var last = GVCCTicket[GVCCTicket.length-1];
+		if (incone == " euconsent")
+		{
+			euconsentfound = i;
+			/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
+			found = true;
+			//console.log("****************CONSENT COOKIE FOUND****************\n\n");
+			console.log("GVCC FOUND!");
+			trimspace = "euconsent=BOSCllVOSCllVABABBENBZAAAAAfaAAA-" + last + ";";
+			//console.log(trimspace);
+			allcookie[i] = trimspace.trim();
+		}
+		else if (incone == " gdprconsent")
+		{
+			/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
+			found = true;
+			//console.log("****************CONSENT COOKIE FOUND****************\n\n");
+			trimspace = "gdprconsent=0;";
+			allcookie[i] = trimspace.trim();
+		}
 	}
-	else if (incone == " gdprconsent")
+	//Empty function for now because a lot of the same harmless error come up.
+	function handleError(error) 
 	{
-		/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
-		found = true;
-		//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-		trimspace = "gdprconsent=0;";
-		allcookie[i] = trimspace.trim();
 	}
-	/*else
+	//This method below and the method above are (c) 2018 Mozilla and indicdual contributors.
+	//Content is dedicated to the Public Domain.
+	//Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage
+	function notifyBackgroundPage() 
 	{
-		trimspace = allcookie[i] + ";";
-		allcookie[i] = trimspace.trim();
-	}*/
-	//console.log("|" + allcookie[i] + "|");
-}
-//console.log(allcookie.toString());
+	  var sending = browser.runtime.sendMessage({
+		greeting: "Do the delete!"
+	  });
+	  sending.then(handleError); 
+	}
+	notifyBackgroundPage();
 
-function handleError(error) {
-}
-function notifyBackgroundPage() {
-  var sending = browser.runtime.sendMessage({
-    greeting: "go();"
-  });
-  sending.then(handleError); 
-}
-notifyBackgroundPage();
-//console.log("Request Sent to Background Script!");
-
-go = function(){
-if (found)
-{
-//console.log("\n--------------------REPLACE THE VALUE--------------------\n");
-//console.log("\n");
-/*Replaces the cookie value with the edited cookie string. (It is supposed to).
-Logs every cookie going in as a separate document.cookie and seems to
-have an issue overwriting cookies that website has put in place.
-It can overwrite its own cookies.*/
-//window.wrappedJSObject.document.cookie = "startmarker=****THIS IS THE START OF THE EDITED COOKIE STRING****";
-var messenger;
-var domain;
-domain = window.location.host.split(/\.(.+)/)[1];
-//console.log("*************************************************");
-trimspace = allcookie[euconsentfound] + " path=/; domain=" + domain + "; expirationDate: 1566398584; hostOnly: false; httpOnly: false; session: false;";
-//console.log(trimspace);
-//window.wrappedJSObject.document.cookie = trimspace.trim();
-messenger = {
-  notify: function(message) {
-    document.cookie = message;
-  }
-};
-
-  window.wrappedJSObject.messenger = cloneInto(
-  messenger,
-  window,
-  {cloneFunctions: true});
-  window.wrappedJSObject.messenger.notify(trimspace.trim());
-  console.log("GVCC Written!");
-}
-};
-var ok = setTimeout(go, 1500);
-ok;
+	write = function()
+	{
+		if (found)
+		{
+			var messenger;
+			var domain;
+			domain = window.location.host.split(/\.(.+)/)[1];
+			trimspace = allcookie[euconsentfound] + " path=/; domain=" + domain + "; expirationDate: 1566398584; hostOnly: false; httpOnly: false; session: false;";
+			//console.log(trimspace);
+			//window.wrappedJSObject.document.cookie = trimspace.trim();
+			messenger = {
+			  notify: function(message) {
+				document.cookie = message;
+			  }
+			};
+		//This method below is (c) 2018 Mozilla and individual contributors.
+		//Content is dedicated to the Public Domain.
+		//Source: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
+		window.wrappedJSObject.messenger = cloneInto
+		(
+		messenger,
+		window,
+		{cloneFunctions: true
+		});
+		window.wrappedJSObject.messenger.notify(trimspace.trim());
+		console.log("GVCC Written!");
+		}
+	};
+	var writeSlow = setTimeout(write, 1500);
+	writeSlow;
 };
 //window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
 //console.log("--------------------FINAL COOKIES--------------------\n");
