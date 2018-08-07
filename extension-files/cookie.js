@@ -27,8 +27,11 @@ document.addEventListener("click", (e) =>
 	{
 		function success()
 		{
-			console.log("GVCC Removed!");
-			checkGVCC();
+			/*This is a workaround to the cookie only being removed most of the time,
+			with a reliable removal 99% of the time on second try.
+			If the cookie is still present before writing, it will try again, and again.
+			For 1.5 seconds on the timer. This is plenty of time to get it done almost all of the time for now.*/
+			checkGVCC(true);
 		}					
 		function whynot(error)
 		{
@@ -41,7 +44,7 @@ document.addEventListener("click", (e) =>
 				url: tabs[0].url,
 				name: "euconsent"
 			});
-		cookierem.then(success, whynot);						
+			cookierem.then(success, whynot);						
 		}						
 		var getActive = browser.tabs.query
 		({
@@ -88,12 +91,12 @@ document.addEventListener("click", (e) =>
 					({
 						file: "write-cookie.js"
 					});
-					checkGVCC();
+					checkGVCC(false);
 				}
 				else
 				{
 					console.log("Nothing I can do here, captain! But here's the modified GVCC.");
-					checkGVCC();
+					checkGVCC(false);
 					writtenConsent = true;
 				}
 			}
@@ -114,6 +117,17 @@ document.addEventListener("click", (e) =>
 				{
 					console.log(cookie);
 				}
+		}
+	}
+	function decideRem(cookies)
+	{
+		if (cookies === undefined || cookies.length == 0) 
+		{
+			console.log("Cookie has been deleted (This is a good thing)");
+		}
+		else
+		{
+			removeGVCC(cookies);
 		}
 	}
 	function logCookies(cookies) 
@@ -140,8 +154,7 @@ document.addEventListener("click", (e) =>
 		var getting = browser.cookies.getAll({});
 		getting.then(logCookies);
 	}
-	
-	function checkGVCC()
+	function checkGVCC(isRemove)
 	{
 		function sendGVCC(tabs)
 		{
@@ -149,7 +162,14 @@ document.addEventListener("click", (e) =>
 			({
 				name:"euconsent"
 			});
-			gettingto.then(logGVCC);
+			if (isRemove)
+			{
+				gettingto.then(decideRem);
+			}
+			else
+			{
+				gettingto.then(logGVCC);
+			}
 		}
 		var getActive = browser.tabs.query
 		({
@@ -160,7 +180,7 @@ document.addEventListener("click", (e) =>
 	}
 	if (e.target.classList.contains("consent2"))			
 	{
-		checkGVCC();
+		checkGVCC(false);
 	}
 	/*click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES*/
 	if (e.target.classList.contains("clear")) 
