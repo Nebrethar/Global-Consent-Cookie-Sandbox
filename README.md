@@ -3,8 +3,7 @@
  This public repository is used to publish a Firefox web extension.
  
  This extension currently overwrites the first section of the Global Vendor Consent Cookie in progress to a larger goal.<br />
- Right now, it only overwrites on the current tab. All information from the extension<br />
- can be seen on the Firefox log (Ctrl+Shift+J).<br />
+ Right now, it only overwrites on the current tab. All information from the extension can be seen on the Firefox log (Ctrl+Shift+J).<br />
  There are also many commented console prints available in the code for debugging purposes.<br />
  The code is not a finished product. Enjoy!
  
@@ -31,7 +30,7 @@
  
  The button "CLEAR COOKIES" will remove all cookies from the browser.
  
- The button "MODIFY GVCC" will write the first section of the GVCC value over with 0's
+ The button "MODIFY GVCC" will write over the first section of the GVCC value.
  
  ## Licensing and Copyright
  
@@ -58,7 +57,7 @@
    cloneInto - https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
    
   The file "require.js" is (c) 2018 IAB Technology Laboratory.<br />
-  Content is used under the MIT License.<br />
+  Content is used under the terms of the MIT License.<br />
   Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
   
  Javascript WebExtension APIs used for the project are (c) Mozilla MDN.<br />
