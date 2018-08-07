@@ -52,7 +52,7 @@
  ### Contributions
 
  The functions "notifyBackgroundPage" and "handleError" and the function "cloneInto" of file "write-cookie.js" are (c) 2018 Mozilla and individual contributors.<br />
- This content is dedicated to the Public Domain.<br />
+ This content is dedicated to the Public Domain. http://creativecommons.org/publicdomain/zero/1.0/<br />
  Sources: <br />
    Functions - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage<br />
    cloneInto - https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
@@ -62,7 +62,7 @@
   Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
   
  Javascript WebExtension APIs used for the project are (c) Mozilla MDN.<br />
- This content is dedicated to the Public Domain.<br />
+ This content is dedicated to the Public Domain.  http://creativecommons.org/publicdomain/zero/1.0/<br />
  Source: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API<br />
  WebExtension API packages currently used:<br />
  -cookies<br />
