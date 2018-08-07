@@ -2,7 +2,7 @@ finish = function finish()
 {
 	var value = (value + "=");
 	var decodedCookie = window.wrappedJSObject.document.cookie;
-	console.log("Cookies Obtained!");
+	//console.log("Cookies Obtained!");
 	/*separates cookies into an array by their separating ";"*/
 	var allcookie = decodedCookie.split(';');
 	/*For if a GVCC is found (by name "euconsent")*/
@@ -27,17 +27,9 @@ finish = function finish()
 			/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
 			found = true;
 			//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-			console.log("GVCC FOUND!");
+			//console.log("GVCC FOUND!");
 			trimspace = "euconsent=BOSCllVOSCllVABABBENBZAAAAAfaAAA-" + last + ";";
 			//console.log(trimspace);
-			allcookie[i] = trimspace.trim();
-		}
-		else if (incone == " gdprconsent")
-		{
-			/*Sets an euconsent cookie to a different value (0's for now). Trims value.*/
-			found = true;
-			//console.log("****************CONSENT COOKIE FOUND****************\n\n");
-			trimspace = "gdprconsent=0;";
 			allcookie[i] = trimspace.trim();
 		}
 	}
@@ -82,7 +74,7 @@ finish = function finish()
 		{cloneFunctions: true
 		});
 		window.wrappedJSObject.messenger.notify(trimspace.trim());
-		console.log("GVCC Written!");
+		console.log("Your GVCC has been overwritten!");
 		}
 	};
 	var writeSlow = setTimeout(write, 1500);
