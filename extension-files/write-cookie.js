@@ -45,7 +45,7 @@ finish = function finish()
 	function handleError(error) 
 	{
 	}
-	//This method below and the method above are (c) 2018 Mozilla and indicdual contributors.
+	//This function below and the function above are (c) 2018 Mozilla and indicdual contributors.
 	//Content is dedicated to the Public Domain.
 	//Source: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage
 	function notifyBackgroundPage() 
@@ -72,7 +72,7 @@ finish = function finish()
 				document.cookie = message;
 			  }
 			};
-		//This method below is (c) 2018 Mozilla and individual contributors.
+		//This call below, cloneInto is (c) 2018 Mozilla and individual contributors.
 		//Content is dedicated to the Public Domain.
 		//Source: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
 		window.wrappedJSObject.messenger = cloneInto
@@ -88,9 +88,6 @@ finish = function finish()
 	var writeSlow = setTimeout(write, 1500);
 	writeSlow;
 };
-//window.wrappedJSObject.document.cookie = "endmarker=****THIS IS THE END OF THE EDITED COOKIE STRING****";
-//console.log("--------------------FINAL COOKIES--------------------\n");
-//console.log(window.wrappedJSObject.document.cookie);
 
 finish();
 

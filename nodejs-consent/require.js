@@ -1,4 +1,4 @@
-//Thhe code below is (c) 2018 IAB Technology Laboratory
+//The code below is (c) 2018 IAB Technology Laboratory
 //Content is under the MIT License
 //Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
 
