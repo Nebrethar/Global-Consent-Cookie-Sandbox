@@ -33,17 +33,6 @@
  
  The button "MODIFY GVCC" will write the first section of the GVCC value over with 0's
  
- ## API information
- 
- Javascript APIs used for the project are provided by Mozilla MDN and can be found at https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API
- 
- APIs used:
- 
- -cookies<br />
- -tabs<br />
- -browsingData<br />
- -runtime
- 
  ## Licensing and Copyright
  
  All source code copyright is retained by the contributors. All contriubtions and source code are licensed under the MIT license. 
@@ -59,3 +48,28 @@
  All icons are used under Open Content license and are labeled for reuse with modification. <br />
  Icons retrieved from https://pixabay.com/en/chocolate-chip-cookie-chocolate-522389/ <br />
  and edited with MS paint.
+ 
+ ### Contributions
+
+ The functions "notifyBackgroundPage" and "handleError" and the function "cloneInto" of file "write-cookie.js" are (c) 2018 Mozilla and individual contributors.<br />
+ This content is dedicated to the Public Domain.<br />
+ Sources: <br />
+   Functions - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage<br />
+   cloneInto - https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
+   
+  The file "require.js" is (c) 2018 IAB Technology Laboratory.<br />
+  Content is used under the MIT License.<br />
+  Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
+  
+ Javascript WebExtension APIs used for the project are (c) Mozilla MDN.<br />
+ This content is dedicated to the Public Domain.<br />
+ Source: https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API<br />
+ WebExtension API packages currently used:<br />
+ -cookies<br />
+ -tabs<br />
+ -browsingData<br />
+ -runtime
+ 
+
+ 
+ 
