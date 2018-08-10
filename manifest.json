@@ -9,7 +9,7 @@
     "48": "icons/cookie-48.png"
   },
 "background": {
-  "scripts": ["extension-files/background.js"]
+  "scripts": ["nodejs-consent/webpack/extension-files/background.js"]
 },
   "permissions": [
  "cookies",
@@ -22,7 +22,7 @@
   "browser_action": {
     "default_icon": "icons/cookie-32.png",
     "default_title": "Cookie Web Extension",
-    "default_popup": "extension-files/cookie.html"
+    "default_popup": "nodejs-consent/webpack/extension-files/cookie.html"
   },
 
   "icons": {
