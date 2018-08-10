@@ -69,9 +69,9 @@
    -browsingData<br />
    -runtime
  
-  This project currently uses Webpack which is (c) JS Foundation and other contributors.
-  This content is used under the terms of the MIT License.
-  Sources:
-   GitHub - https://github.com/webpack/webpack
+  This project currently uses Webpack which is (c) JS Foundation and other contributors.<br />
+  This content is used under the terms of the MIT License.<br />
+  Sources:<br />
+   GitHub - https://github.com/webpack/webpack<br />
    Website - https://webpack.js.org/
  
