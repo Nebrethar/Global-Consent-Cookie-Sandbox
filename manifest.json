@@ -2,15 +2,9 @@
 
   "manifest_version": 2,
   "name": "Cookie Web Extension",
-  "version": "2.0",
-
-  "description": "deletes cookies",
-  "icons": {
-    "48": "icons/cookie-48.png"
-  },
-"background": {
-  "scripts": ["nodejs-consent/webpack/extension-files/background.js"]
-},
+  "version": "3.0",
+  "description": "Modifies GVCC",
+  
   "permissions": [
  "cookies",
  "<all_urls>",
@@ -22,12 +16,11 @@
   "browser_action": {
     "default_icon": "icons/cookie-32.png",
     "default_title": "Cookie Web Extension",
-    "default_popup": "nodejs-consent/webpack/extension-files/cookie.html"
+    "default_popup": "extension-files/cookie.html"
   },
 
   "icons": {
     "48": "icons/cookie-48.png",
     "96": "icons/cookie-96.png"
   }
-
 }
