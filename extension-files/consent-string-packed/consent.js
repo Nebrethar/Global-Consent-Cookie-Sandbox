@@ -1,30 +1,9 @@
-//The method loadJSON is (c) Rich (@KryptoniteDove)
-//This content is used under the MIT License
-//Source: https://codepen.io/KryptoniteDove/post/load-json-file-locally-using-pure-javascript
-function loadJSON(callback) {
-		var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', 'vendorlist.json', true); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function () {
-    if (xobj.readyState == 4 && xobj.status == "200") {
-    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-    callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);
-}
-	
 function grabConsent()
 {
 	console.log("Generating String!");
 // Set the global vendor list
 // You need to download and provide the vendor list yourself.
-function init() {
-  loadJSON(function(response) {
-    // Parse JSON string into object
-    setGlobalVendorList(JSON.parse(response));
-  });
-}
+setGlobalVendorList(dummy);
 // Set the consent data
 setCmpId(1);
 setCmpVersion(1);
@@ -2105,17 +2084,10 @@ var g;
 g = (function() {
 	return this;
 })();
-
-try {
 	// This works if the window reference is available
 	if(typeof window === "object")
 		g = window;
 	grabConsent();
-}
-catch(e)
-{
-  console.log("Can't gather consent string: " + e);
-}
 // g can still be undefined, but nothing to do about it...
 // We return undefined, instead of nothing here, so it's
 // easier to handle this case. if(!global) { ...}

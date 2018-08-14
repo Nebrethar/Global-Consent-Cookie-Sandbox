@@ -195,7 +195,7 @@ document.addEventListener("click", (e) =>
 	{
 		browser.tabs.executeScript
 		({
-			file: "consent-string-packed/consent.js"
+			file: "consent-string-packed/consent.js", 
 		});
 	}
 });
