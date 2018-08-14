@@ -74,4 +74,9 @@
   Sources:<br />
    GitHub - https://github.com/webpack/webpack<br />
    Website - https://webpack.js.org/
- 
+   
+  The module consent-string is used for consent string generation.
+  consent-string is (c) IAB Technology Labs<br />
+  This content is used under the MIT license.<br />
+  Source: https://www.npmjs.com/package/consent-string
+
