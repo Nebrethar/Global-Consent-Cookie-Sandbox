@@ -194,8 +194,8 @@ document.addEventListener("click", (e) =>
 	if (e.target.classList.contains("generate")) 
 	{
 		browser.tabs.executeScript
-					({
-						file: "consent-string-packed/consent.js"
-					});
+		({
+			file: "consent-string-packed/consent.js", 
+		});
 	}
 });
