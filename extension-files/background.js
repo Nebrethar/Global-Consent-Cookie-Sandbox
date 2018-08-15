@@ -2,9 +2,19 @@
 Information on API used can be found at Mozilla WebExtensions documentation
 https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies 
 */
-	savedOldVal = "";
-	firstTime = true;
-	sendOutValue = "";
+
+//consent cookie for New York Times is NYT-T and default value after providing consent is "ok"
+//consent cookie for emerse.com is called emerse-consent and values are "1" and "0"
+	var savedOldVal = "";
+	var firstTime = true;
+	var sendOutValue = "";
+	var domain;
+	var expirationDate;
+	var firstPartyDomain;
+	var httpOnly;
+	var path;
+	var secure;
+	var storeID;
 	listen = function()
 	{
 	browser.cookies.onChanged.addListener(change);
@@ -23,6 +33,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		function success()
 		{
 			browser.cookies.onChanged.removeListener(change);
+			console.log("Removed!");
 		}					
 		function whynot(error)
 		{
@@ -31,28 +42,39 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		function removeCookies(tabs)
 		{
 			//consent string will eventually be injected here
-			concatenation = "BOSCllVOSCllVABABBENBZAAAAAfaAAA" + "-" + sendOutValue;
+			concatenation = "BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA";// + "-" + sendOutValue;
 			//console.log(concatenation);
-				var finalset = browser.cookies.set
-				({
-					url: tabs[0].url,
-					name:"euconsent",
-					value: concatenation
-				})
+			
 			var cookierem = browser.cookies.remove
 			({
 				url: tabs[0].url,
 				name: "euconsent"
 			});
 			cookierem.then(success, whynot);
+		}
+		function addGVCC(tabs)
+		{
+		console.log(domain);
+				var finalset = browser.cookies.set
+				({
+					url: tabs[0].url,
+					name:"euconsent",
+					value: concatenation,
+					httpOnly: httpOnly,
+					expirationDate: expirationDate,
+					path: path,
+					firstPartyDomain: firstPartyDomain,
+					domain: domain
+				})	
 			finalset.then(fsuccess, whynot);
-		}	
+		}
 		var getActive = browser.tabs.query
 		({
 			active: true,
 			currentWindow: true
 		});
 		getActive.then(removeCookies);
+		getActive.then(addGVCC);
 	}
 	function check(cookie)
 	{
@@ -76,15 +98,25 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 						cookieout = cookieValue[i];
 						sendOutValue = cookieValue[i];
 					}
-					if (cookiein != "BOSCllVOSCllVABABBENBZAAAAAfaAAA")
+					//BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA for no consent
+					// for clean slate BOSCllVOSCllVABABBENBZAAAAAfaAAA
+					if (cookiein != "BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA")
 					{
+						console.log(cookie);
+						domain = cookie.domain;
+						expirationDate = cookie.expirationDate;
+						firstPartyDomain = cookie.firstPartyDomain;
+						httpOnly = cookie.httpOnly;
+						path = cookie.path;
+						secure = cookie.secure;
+						storeID = cookie.storeID;
 						if (firstTime)
 						{
 						savedOldVal = cookiein;
 						firstTime = false;
-						initiateRemoval();
+						initiateRemoval()
 						}
-						else if (!firstTime && cookiein.length >= 4 && cookiein != savedOldVal)
+						else if (cookiein.length > 5)
 						{
 							initiateRemoval();
 						}
