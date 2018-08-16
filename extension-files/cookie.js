@@ -5,7 +5,6 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 
 document.addEventListener("click", (e) =>
 {
-	var writtenConsent = false;
 	/*Logs all cookies to console. Shows all cookie data,
 	as compared to how document.cookie in file write-cookie.js
 	shows just name=value*/
@@ -50,8 +49,6 @@ document.addEventListener("click", (e) =>
 	}
 	
 	
-	
-	
 	function checkGVCC()
 	{
 		function sendGVCC(tabs)
@@ -87,10 +84,6 @@ document.addEventListener("click", (e) =>
 	if (e.target.classList.contains("clear")) 
 	{
 		browser.browsingData.removeCookies({}).then(onRemoved, onError);
-	}
-	if (e.target.classList.contains("remove")) 
-	{
-		modifyCookies();
 	}
 	if (e.target.classList.contains("generate")) 
 	{
