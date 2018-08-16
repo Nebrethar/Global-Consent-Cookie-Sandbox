@@ -10,10 +10,12 @@
  "<all_urls>",
  "browsingData",
  "activeTab",
- "tabs"
+ "tabs",
+ "webNavigation",
+ "dns"
  ],
 	"background": {
-		"scripts": ["/extension-files/background.js"]
+		"scripts": ["/extension-files/consent-creator.js"]
 	},
   "browser_action": {
     "default_icon": "icons/cookie-32.png",
