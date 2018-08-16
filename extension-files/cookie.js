@@ -1,14 +1,11 @@
-/*
-Information on API used can be found at Mozilla WebExtensions documentation
-https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies 
-*/
+"use strict";
 
-document.addEventListener("click", (e) =>
-{
-	/*Logs all cookies to console. Shows all cookie data,
-	as compared to how document.cookie in file write-cookie.js
-	shows just name=value*/
+document.addEventListener("click", async (event) => {
+    /* click "LOG COOKIES" */
+    if (event.target.classList.contains("log")) {
+        let cookies = await browser.cookies.getAll({});
 
+<<<<<<< HEAD
 	function logCookies(cookies) 
 	{
 		if (cookies === undefined || cookies.length == 0) 
@@ -103,3 +100,42 @@ document.addEventListener("click", (e) =>
 		});
 	}
 });
+=======
+        if (cookies === undefined || cookies.length == 0) {
+            console.log("No cookies found!");
+        } else {
+            for (let [n, cookie] of Object.entries(cookies)) {
+                console.log("#" + n, cookie);
+            }
+        }
+    }
+
+    if (event.target.classList.contains("consent2")) {
+        let cookies = await browser.cookies.getAll({name: "euconsent"});
+
+        if (cookies === undefined || cookies.length == 0) {
+            console.log("I have not found what you are looking for.");
+        } else {
+            for (let cookie of cookies) {
+                console.log(cookie);
+            }
+        }
+    }
+
+    /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
+    if (event.target.classList.contains("clear")) {
+        try {
+            await browser.browsingData.removeCookies({});
+            console.log("Removed!");
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    if (event.target.classList.contains("generate")) {
+        browser.tabs.executeScript({
+            file: "consent-string-packed/consent.js",
+        });
+    }
+});
+>>>>>>> master

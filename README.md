@@ -7,7 +7,7 @@
  There are also many commented console prints available in the code for debugging purposes.<br />
  The code is not a finished product. Enjoy!
  
- ## How to install this web extension (First Steps)
+ ## How to install this web extension
  
  1. Download this repository to a location of your choice.
  2. Install Web-Ext from Mozilla's Github Repository here: https://github.com/mozilla/web-ext
