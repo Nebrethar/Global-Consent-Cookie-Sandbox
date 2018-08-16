@@ -1,30 +1,22 @@
 "use strict";
 
-document.addEventListener("click", (e) => {
-    /**
-     * Logs all cookies to console. Shows all cookie data,
-     * as compared to how document.cookie in file write-cookie.js
-     * shows just name=value
-     */
-    function logCookies(cookies) {
+document.addEventListener("click", async (event) => {
+    /* click "LOG COOKIES" */
+    if (event.target.classList.contains("log")) {
+        let cookies = await browser.cookies.getAll({});
+
         if (cookies === undefined || cookies.length == 0) {
             console.log("No cookies found!");
         } else {
-            let j = 1;
-            for (let cookie of cookies) {
-                console.log("#" + j);
-                console.log(cookie);
-                j++;
+            for (let [n, cookie] of Object.entries(cookies)) {
+                console.log("#" + n, cookie);
             }
         }
     }
-    /* click "LOG COOKIES" */
-    if (e.target.classList.contains("log")) {
-        let getting = browser.cookies.getAll({});
-        getting.then(logCookies);
-    }
 
-    function logGVCC(cookies) {
+    if (event.target.classList.contains("consent2")) {
+        let cookies = await browser.cookies.getAll({name: "euconsent"});
+
         if (cookies === undefined || cookies.length == 0) {
             console.log("I have not found what you are looking for.");
         } else {
@@ -34,35 +26,17 @@ document.addEventListener("click", (e) => {
         }
     }
 
-    function checkGVCC() {
-        function sendGVCC() {
-            let gettingto = browser.cookies.getAll({
-                name: "euconsent",
-            });
-            gettingto.then(logGVCC);
-        }
-        let getActive = browser.tabs.query({
-            active: true,
-            currentWindow: true,
-        });
-        getActive.then(sendGVCC);
-    }
-    if (e.target.classList.contains("consent2")) {
-        checkGVCC(false);
-    }
-
-    function onRemoved() {
-        console.log("Removed!");
-    }
-    function onError(error) {
-        console.error(error);
-    }
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
-    if (e.target.classList.contains("clear")) {
-        browser.browsingData.removeCookies({}).then(onRemoved, onError);
+    if (event.target.classList.contains("clear")) {
+        try {
+            await browser.browsingData.removeCookies({});
+            console.log("Removed!");
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    if (e.target.classList.contains("generate")) {
+    if (event.target.classList.contains("generate")) {
         browser.tabs.executeScript({
             file: "consent-string-packed/consent.js",
         });

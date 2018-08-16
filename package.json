@@ -18,6 +18,9 @@
 
     "eslintConfig": {
         "extends": "google",
+        "parserOptions": {
+            "ecmaVersion": 2017
+        },
         "rules": {
             "quotes": 0,
             "require-jsdoc": 0,
