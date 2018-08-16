@@ -1,12 +1,13 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
+/*
 /*
 Information on API used can be found at Mozilla WebExtensions documentation
 https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies 
-*/
+*//*
 	/*
 	NAME: initiateCookie
 	PURPOSE: processes "tabs" variable and sends it to removeCookies and addGVCC
-	*/
+	*//*
 	function initiateCookie()
 	{
 		function success(e)
@@ -17,7 +18,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		/*
 		NAME: addGVCC
 		PURPOSE: Creates a new GVCC and adds it to the browser
-		*/
+		*//*
 		function addGVCC(tabs)
 		{
 			//100% consent "BOSl-jdOSl-jlABABBENBd-AAAAgV______________________________________________________________________________________A"
@@ -53,7 +54,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 	browser.webNavigation.onCommitted.addListener(initiateCookie);
 	browser.webNavigation.onDOMContentLoaded.addListener(initiateCookie);
 	
-=======
+//=======*/
 "use strict";
 
 /**
@@ -88,4 +89,4 @@ function main() {
 }
 
 main();
->>>>>>> master
+//>>>>>>> master
