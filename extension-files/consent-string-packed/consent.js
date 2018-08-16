@@ -1,3 +1,7 @@
+/*
+NAME: grabConsent
+PURPOSE: Generates a consent string and sends it to background.js
+*/
 function grabConsent()
 {
 	console.log("Generating String!");
