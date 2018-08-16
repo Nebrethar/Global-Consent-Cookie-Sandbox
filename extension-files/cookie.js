@@ -58,6 +58,16 @@ document.addEventListener("click", (e) =>
 				name:"euconsent"
 			});
 				gettingto.then(logGVCC);
+				gettingto = browser.cookies.getAll
+			({
+				name:"EuConsent"
+			});
+				gettingto.then(logGVCC);
+				gettingto = browser.cookies.getAll
+			({
+				name:"EUCONSENT"
+			});
+				gettingto.then(logGVCC);
 		}
 		var getActive = browser.tabs.query
 		({

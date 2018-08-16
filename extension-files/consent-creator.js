@@ -11,6 +11,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		function success(e)
 		{
 			browser.webNavigation.onCommitted.removeListener(initiateCookie);
+			console.log("cookie");
 		}
 		/*
 		NAME: addGVCC
@@ -18,15 +19,18 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		*/
 		function addGVCC(tabs)
 		{
+			//100% consent "BOSl-jdOSl-jlABABBENBd-AAAAgV______________________________________________________________________________________A"
+			//0% consent "BOSmIULOSmIUTABABBENBdAAAAAgWAAA"
 			//this seems to work pretty well for every website
 			domain = tabs[0].url.split('/')[2];
 				var cookieset = browser.cookies.set
 				({
 					url: tabs[0].url,
 					name: "euconsent",
-					value: "BOEFEAyOEFEAyAHABDENAI4AAAB9vABAASA",
+					value: "BOSmIULOSmIUTABABBENBdAAAAAgWAAA",
 					httpOnly: false,
 					//temporary
+					expirationDate: 1568133479,
 					path: "/",
 					firstPartyDomain: "",
 					storeId: "firefox-default",
