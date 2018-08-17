@@ -1,29 +1,7 @@
 "use strict";
 
 document.addEventListener("click", async (event) => {
-    /* click "LOG COOKIES" */
-    if (event.target.classList.contains("log")) {
-        await browser.cookies.getAll({});
-    }
 <<<<<<< HEAD
-    function logCookies(cookies)
-    {
-        if (cookies === undefined || cookies.length == 0)
-        {
-            console.log("No cookies found!");
-        }
-        else
-        {
-            var j = 1;
-            for (let cookie of cookies)
-                {
-                //console.log(cookie);
-                console.log("#" + j);
-                    console.log(cookie);
-                    j++;
-                }
-        }
-    }
     if (event.target.classList.contains("log"))
     {
         var getting = browser.cookies.getAll({});
@@ -105,6 +83,28 @@ document.addEventListener("click", async (event) => {
             }
         }
 =======
+	function logCookies(cookies)
+    {
+        if (cookies === undefined || cookies.length == 0)
+        {
+            console.log("No cookies found!");
+        }
+        else
+        {
+            var j = 1;
+            for (let cookie of cookies)
+                {
+                //console.log(cookie);
+                console.log("#" + j);
+                    console.log(cookie);
+                    j++;
+                }
+        }
+    }
+    if (event.target.classList.contains("log")) {
+        let cookies = await browser.cookies.getAll({});
+		logCookies(cookies);
+    }
     if (event.target.classList.contains("consent2")) {
         let cookies = await browser.cookies.getAll({name: "euconsent"});
 
