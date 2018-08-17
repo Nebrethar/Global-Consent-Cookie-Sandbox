@@ -4,7 +4,7 @@ document.addEventListener("click", async (event) => {
     /* click "LOG COOKIES" */
     if (event.target.classList.contains("log")) {
         let cookies = await browser.cookies.getAll({});
-
+	}
 <<<<<<< HEAD
 	function logCookies(cookies) 
 	{
@@ -24,8 +24,7 @@ document.addEventListener("click", async (event) => {
 				}
 		}
 	}
-	/*click "LOG COOKIES"*/
-	if (e.target.classList.contains("log")) 
+	if (event.target.classList.contains("log")) 
 	{
 		var getting = browser.cookies.getAll({});
 		getting.then(logCookies);
@@ -87,7 +86,6 @@ document.addEventListener("click", async (event) => {
 	{
 		console.error(error);
 	}
-	/*click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES*/
 	if (e.target.classList.contains("clear")) 
 	{
 		browser.browsingData.removeCookies({}).then(onRemoved, onError);
@@ -99,8 +97,6 @@ document.addEventListener("click", async (event) => {
 			file: "consent-string-packed/consent.js", 
 		});
 	}
-});
-=======
         if (cookies === undefined || cookies.length == 0) {
             console.log("No cookies found!");
         } else {
@@ -108,8 +104,7 @@ document.addEventListener("click", async (event) => {
                 console.log("#" + n, cookie);
             }
         }
-    }
-
+=======
     if (event.target.classList.contains("consent2")) {
         let cookies = await browser.cookies.getAll({name: "euconsent"});
 
