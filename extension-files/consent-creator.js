@@ -1,4 +1,4 @@
-//<<<<<<< HEAD
+<<<<<<< HEAD
 /*
 /*
 Information on API used can be found at Mozilla WebExtensions documentation
@@ -18,7 +18,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 		/*
 		NAME: addGVCC
 		PURPOSE: Creates a new GVCC and adds it to the browser
-		*//*
+		*/
 		function addGVCC(tabs)
 		{
 			//100% consent "BOSl-jdOSl-jlABABBENBd-AAAAgV______________________________________________________________________________________A"
@@ -54,7 +54,7 @@ https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies
 	browser.webNavigation.onCommitted.addListener(initiateCookie);
 	browser.webNavigation.onDOMContentLoaded.addListener(initiateCookie);
 	
-//=======*/
+=======
 "use strict";
 
 /**
@@ -120,6 +120,7 @@ async function initiateCookie() {
 //Would like to call this on navigation to a new
 //webpage, but cannot find an API for it.
 function main() {
+
 	// Listeners for actions that would provoke a dialog
 	browser.tabs.onActivated.addListener(initiateCookie);
 	browser.webNavigation.onCommitted.addListener(initiateCookie);
@@ -127,4 +128,4 @@ function main() {
 
 main();
 
-//>>>>>>> master
+>>>>>>> master

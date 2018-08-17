@@ -5,8 +5,7 @@ document.addEventListener("click", async (event) => {
     if (event.target.classList.contains("log")) {
         let cookies = await browser.cookies.getAll({});
 	}
-//<<<<<<< HEAD
-/*
+<<<<<<< HEAD
 	function logCookies(cookies) 
 	{
 		if (cookies === undefined || cookies.length == 0) 
@@ -104,8 +103,8 @@ document.addEventListener("click", async (event) => {
             for (let [n, cookie] of Object.entries(cookies)) {
                 console.log("#" + n, cookie);
             }
-        }*/
-//=======
+        }
+=======
     if (event.target.classList.contains("consent2")) {
         let cookies = await browser.cookies.getAll({name: "euconsent"});
 
@@ -134,4 +133,4 @@ document.addEventListener("click", async (event) => {
         });
     }
 });
-//>>>>>>> master
+>>>>>>> master
