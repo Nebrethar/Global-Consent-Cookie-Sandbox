@@ -12,15 +12,17 @@
  1. Download this repository to a location of your choice.
  2. Install Web-Ext from Mozilla's Github Repository here: https://github.com/mozilla/web-ext
  
- ### Install: Windows
+ ### Installation: npm
  
- 1. Open your command prompt - Select "Run as Administrator"
- 2. Navigate to the main directory of this web extension
- 3. Provide this command to your computer:
+ 3. Install Global-Consent-Cookie-Sandbox in its directory:
  ```
-   web-ext run
+ npm install
  ```
- 4. The web extension should appear in the top right corner as a "cookie" icon.
+ 4. After the installation, you can run the program with the following command:
+ ```
+ npm start
+ ```
+ This will also launch Web-Ext.
  
   ## How to use this web extension
  
@@ -49,13 +51,7 @@
  and edited with MS paint.
  
  ### Contributions
-
-  The functions "notifyBackgroundPage" and "handleError" and the function "cloneInto" of file "write-cookie.js" are (c) 2018 Mozilla and   individual contributors.<br />
-  This content is dedicated to the Public Domain. http://creativecommons.org/publicdomain/zero/1.0/<br />
-  Sources: <br />
-   Functions - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/sendMessage<br />
-   cloneInto - https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.cloneInto
-   
+ 
   The file "require.js" is (c) 2018 IAB Technology Laboratory.<br />
   This content is used under the terms of the MIT License.<br />
   Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
@@ -67,16 +63,10 @@
    -cookies<br />
    -tabs<br />
    -browsingData<br />
-   -runtime
- 
-  This project currently uses Webpack which is (c) JS Foundation and other contributors.<br />
-  This content is used under the terms of the MIT License.<br />
-  Sources:<br />
-   GitHub - https://github.com/webpack/webpack<br />
-   Website - https://webpack.js.org/
+   -runtime<br />
+   -webNavigation
    
   The module consent-string is used for consent string generation.
   consent-string is (c) IAB Technology Labs<br />
   This content is used under the MIT license.<br />
   Source: https://www.npmjs.com/package/consent-string
-
