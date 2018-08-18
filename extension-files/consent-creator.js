@@ -18,7 +18,7 @@ async function initiateCookie() {
     let domain = tabs[0].url.split("/")[2];
     let domainSet = "." + domain;
     // for debugging
-    //console.log("DOMAIN: " + domain);
+    // console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
@@ -61,6 +61,7 @@ async function initiateCookie() {
     __________________________________________________________
     */
     switch (domain) {
+        case "www.independent.co.uk": setCookie(); break;
         // consented. This website just checks if there is a
         // cookie called "banner-cookie". If one is present,
         // it turns off the wall.
@@ -69,14 +70,18 @@ async function initiateCookie() {
             valueSet = "0";
             setCookie();
             break;
-        // consented
         case "www.theguardian.com":
             nameSet = "GU_TK";
             valueSet = "1.1534544181584";
             domainSet = ".theguardian.com";
             setCookie();
             break;
-        // consented
+        case "voterspost.com":
+            nameSet = "cookie_notice_accepted";
+            valueSet = "true";
+            domainSet = "voterspost.com";
+            setCookie();
+            break;
         case "www.bbc.com":
             nameSet = "ckns_policy_exp";
             valueSet = "1566096722751";
@@ -92,19 +97,44 @@ async function initiateCookie() {
             valueSet = "111";
             setCookie();
             break;
+        case "www.euractiv.com":
+            nameSet = "cookie-law-bar";
+            valueSet = "accept";
+            domainSet = "www.euractiv.com";
+            setCookie();
+            break;
+        case "www.nytimes.com":
+            nameSet = "NYT-T";
+            valueSet = "ok";
+            domainSet = ".nytimes.com";
+            setCookie();
+
+        /*  This is based on an Opt-Out cookie that
+        quantserve provides. I can't seem to get
+        the necessary permissions to create the
+        cookie.
         case "www.euronews.com":
-            /* This is based on an Opt-Out cookie that
-            quantserve provides. I can't seem to get
-            the necessary permissions to create the
-            cookie.*/
             domainSet = ".quantserve.com";
             nameSet = "qoo";
             valueSet = "OPT-OUT";
             setCookie();
             break;
-        default:
-            // cast a wide net
+
+        This below causes "permission denied"
+        error as well
+        case "www.theverge.com":
+            nameSet = "_chorus_privacy_consent";
+            valueSet = "1534612058274-36c5e1f61527f6ab625612d5e08d5af6";
+            domainSet = "auth.voxmedia.com";
             setCookie();
+            nameSet = "_chorus_privacy_consent";
+            valueSet = "1534612058274-36c5e1f61527f6ab625612d5e08d5af6";
+            domainSet = "www.theverge.com";
+            setCookie();
+            break;*/
+
+        default:
+            // do nothing
     }
     // console.log("Setting cookie value: " + valueSet.substr(0,16) + "....");
     // Temporary fix for window issue described below.
