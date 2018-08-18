@@ -17,9 +17,9 @@ async function initiateCookie() {
     // this seems to work pretty well for every website
     let domain = tabs[0].url.split("/")[2];
     let domainSet = "." + domain;
+	//More of these may be necessary in the future.
 	if (domain.startsWith("www.thelocal"))
 	{
-		console.log("setting domain to local");
 		domain = "theLocal"
 	}
     // for debugging
