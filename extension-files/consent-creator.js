@@ -17,11 +17,10 @@ async function initiateCookie() {
     // this seems to work pretty well for every website
     let domain = tabs[0].url.split("/")[2];
     let domainSet = "." + domain;
-	//More of these may be necessary in the future.
-	if (domain.startsWith("www.thelocal"))
-	{
-		domain = "theLocal"
-	}
+    // More of these may be necessary in the future.
+    if (domain.startsWith("www.thelocal")) {
+        domain = "theLocal";
+    }
     // for debugging
     // console.log("DOMAIN: " + domain);
     async function setCookie() {
@@ -67,9 +66,9 @@ async function initiateCookie() {
     */
     switch (domain) {
         case "www.independent.co.uk": setCookie(); break;
-		//Below is for all theLocal domains
-		//such as .fr .de
-		case "theLocal": setCookie(); break;
+        // Below is for all theLocal domains
+        // such as .fr .de
+        case "theLocal": setCookie(); break;
         // consented. This website just checks if there is a
         // cookie called "banner-cookie". If one is present,
         // it turns off the wall.

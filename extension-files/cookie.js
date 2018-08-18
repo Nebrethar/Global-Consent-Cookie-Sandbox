@@ -26,7 +26,7 @@ document.addEventListener("click", async (event) => {
               if (cookies === undefined || cookies.length == 0) {
                  console.log(name + " not present.");
              } else {
-                 console.log("***********FOUND: " + name);
+                console.log("***********FOUND: " + name);
                  for (let cookie of cookies) {
                      console.log(cookie.domain);
                  }
