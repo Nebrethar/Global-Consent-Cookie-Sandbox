@@ -6,6 +6,8 @@ async function initiateCookie() {
     let tabs = await browser.tabs.query({active: true, currentWindow: true});
     let domain = tabs[0].url.split("/")[2];
     browser.webNavigation.onCommitted.removeListener(initiateCookie);
+    // The default values here indicate the default settings
+    // for a consent cookie with all vendors allowed.
     let urlSet = tabs[0].url;
     let nameSet = "euconsent";
     let valueSet = "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
@@ -15,7 +17,9 @@ async function initiateCookie() {
     let pathSet = "/";
     let firstPartyDomainSet = "";
     let storeIdSet = "firefox-default";
-    // this seems to work pretty well for every website
+    /* This is the default domain, and
+    it seems to work pretty well for
+    half of the time*/
     let domainSet = "." + domain;
     // More of these may be necessary in the future.
     if (domain.startsWith("www.thelocal")) {
@@ -24,8 +28,8 @@ async function initiateCookie() {
     if (domain.startsWith("ctxt")) {
         domain = "ctxt";
     }
-    // for debugging
-    console.log("DOMAIN: " + domain);
+    // useful  for debugging
+    // console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
