@@ -3,8 +3,9 @@
  * Processes "tabs" variable and sends it to removeCookies and addGVCC
  */
 async function initiateCookie() {
+	let tabs = await browser.tabs.query({active: true, currentWindow: true});
+	let domain = tabs[0].url.split("/")[2];
     browser.webNavigation.onCommitted.removeListener(initiateCookie);
-    let tabs = await browser.tabs.query({active: true, currentWindow: true});
     let urlSet = tabs[0].url;
     let nameSet = "euconsent";
     let valueSet = "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
@@ -15,7 +16,6 @@ async function initiateCookie() {
     let firstPartyDomainSet = "";
     let storeIdSet = "firefox-default";
     // this seems to work pretty well for every website
-    let domain = tabs[0].url.split("/")[2];
     let domainSet = "." + domain;
     // More of these may be necessary in the future.
     if (domain.startsWith("www.thelocal")) {
@@ -25,7 +25,7 @@ async function initiateCookie() {
         domain = "ctxt";
     }
     // for debugging
-    //console.log("DOMAIN: " + domain);
+    console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
@@ -124,23 +124,37 @@ async function initiateCookie() {
 			domainSet = "ctxt.es";
 			setCookie();
 			break;
-		//Experimental forsal support
+		/*Experimental forsal support
 		case "forsal.pl":
 		    nameSet = "inforCookieWallGlobalVal";
 			valueSet = "15";
 			domainSet = "forsal.pl";
-			cookieSet();
-			break;
+			setCookie();
+			break;*/
 		case "index.hu":
 		    nameSet = "_iph_pcb";
 			valueSet = "1";
 			setCookie();
 			break;
-		case "index.hr":
-		    nameSet = "_gat";
+		case "www.thejournal.ie":
+		console.log("found");
+			nameSet = "cookies_notice";
 			valueSet = "1";
 			setCookie();
 			break;
+		/*investing.com and index.hr will load 
+		consent cookie on second load.
+		Can be preloaded with the "preload" button
+		case "www.investing.com":
+			nameSet = "cookieConsent";
+			valueSet = "was-set";
+			setCookie();
+			break;
+		case "www.index.hr":
+			nameSet = "_gat";
+			valueSet = "1";
+			setCookie()
+			break;*/
         /*  This is based on an Opt-Out cookie that
         quantserve provides. I can't seem to get
         the necessary permissions to create the
@@ -182,3 +196,6 @@ function main() {
     browser.webNavigation.onCommitted.addListener(initiateCookie);
 }
 main();
+
+//browser.cookies.onChanged.addListener(function(cookie) {
+//console.log(cookie.cookie);});
