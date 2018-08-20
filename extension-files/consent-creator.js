@@ -21,8 +21,11 @@ async function initiateCookie() {
     if (domain.startsWith("www.thelocal")) {
         domain = "theLocal";
     }
+	if (domain.startsWith("ctxt")) {
+        domain = "ctxt";
+    }
     // for debugging
-    // console.log("DOMAIN: " + domain);
+    //console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
@@ -115,7 +118,29 @@ async function initiateCookie() {
             valueSet = "ok";
             domainSet = ".nytimes.com";
             setCookie();
-
+        case "ctxt":
+		    nameSet = "lopd";
+			valueSet = "true";
+			domainSet = "ctxt.es";
+			setCookie();
+			break;
+		//Experimental forsal support
+		case "forsal.pl":
+		    nameSet = "inforCookieWallGlobalVal";
+			valueSet = "15";
+			domainSet = "forsal.pl";
+			cookieSet();
+			break;
+		case "index.hu":
+		    nameSet = "_iph_pcb";
+			valueSet = "1";
+			setCookie();
+			break;
+		case "index.hr":
+		    nameSet = "_gat";
+			valueSet = "1";
+			setCookie();
+			break;
         /*  This is based on an Opt-Out cookie that
         quantserve provides. I can't seem to get
         the necessary permissions to create the

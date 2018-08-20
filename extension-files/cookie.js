@@ -42,6 +42,9 @@ document.addEventListener("click", async (event) => {
         addName("cookie_notice_accepted");
         addName("cookie-law-bar");
         addName("NYT-T");
+		addName("lopd");
+		addName("_iph_pcb");
+		addName("_gat");
      }
 
      /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
