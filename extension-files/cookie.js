@@ -1,136 +1,101 @@
-"use strict";
-
 document.addEventListener("click", async (event) => {
-    /* click "LOG COOKIES" */
-    if (event.target.classList.contains("log")) {
-        let cookies = await browser.cookies.getAll({});
-	}
-<<<<<<< HEAD
-	function logCookies(cookies) 
-	{
-		if (cookies === undefined || cookies.length == 0) 
-		{
-			console.log("No cookies found!");
-		}
-		else
-		{
-			var j = 1;
-			for (let cookie of cookies) 
-				{
-				//console.log(cookie);
-				console.log("#" + j);
-					console.log(cookie);
-					j++;
-				}
-		}
-	}
-	if (event.target.classList.contains("log")) 
-	{
-		var getting = browser.cookies.getAll({});
-		getting.then(logCookies);
-	}
-	function logGVCC(cookies)
-	{
-		if (cookies === undefined || cookies.length == 0) 
-		{
-			console.log("I have not found what you are looking for.");
-		}
-		else
-		{
-			for (let cookie of cookies) 
-				{
-					console.log(cookie);
-				}
-		}
-	}
-	
-	
-	function checkGVCC()
-	{
-		function sendGVCC(tabs)
-		{
-			var gettingto = browser.cookies.getAll
-			({
-				name:"euconsent"
-			});
-				gettingto.then(logGVCC);
-				gettingto = browser.cookies.getAll
-			({
-				name:"EuConsent"
-			});
-				gettingto.then(logGVCC);
-				gettingto = browser.cookies.getAll
-			({
-				name:"EUCONSENT"
-			});
-				gettingto.then(logGVCC);
-		}
-		var getActive = browser.tabs.query
-		({
-			active: true,
-			currentWindow: true
-		})
-		getActive.then(sendGVCC);
-	}
-	if (e.target.classList.contains("consent2"))			
-	{
-		checkGVCC(false);
-	}
-	
-	
-	function onRemoved() 
-	{
-		console.log("Removed!");
-	}
-	function onError(error) 
-	{
-		console.error(error);
-	}
-	if (e.target.classList.contains("clear")) 
-	{
-		browser.browsingData.removeCookies({}).then(onRemoved, onError);
-	}
-	if (e.target.classList.contains("generate")) 
-	{
-		browser.tabs.executeScript
-		({
-			file: "consent-string-packed/consent.js", 
-		});
-	}
+    async function preloadCookies() {
+    async function setCookie(nameSet, valueSet, domainSet, urlSet) {
+        await browser.cookies.set({
+            url: urlSet,
+            name: nameSet,
+            value: valueSet,
+            httpOnly: false,
+            path: "/",
+            firstPartyDomain: "",
+            storeId: "firefox-default",
+            domain: domainSet,
+            secure: false,
+            expirationDate: 1566099891,
+        });
+        console.log("Cookie " + nameSet + " set for domain " + domainSet);
+    }
+    // set cookieConsent for www.investing.com
+    setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
+    // set _gat for www.index.hr
+    setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
+    // set cookies_notice for .www.thejournal.ie
+    setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
+}
+    async function logCookies(currentDomain) {
+        let tabs = await browser.tabs.query({
+        active: true, currentWindow: true});
+        let cookies = null;
+        if (currentDomain == true) {
+        console.log("CURRENT DOMAIN");
+        cookies = await browser.cookies.getAll({url: tabs[0].url});
+        } else {
+        cookies = await browser.cookies.getAll({});
+        }
+        console.log("CONTINGUE");
         if (cookies === undefined || cookies.length == 0) {
             console.log("No cookies found!");
         } else {
-            for (let [n, cookie] of Object.entries(cookies)) {
-                console.log("#" + n, cookie);
-            }
-        }
-=======
-    if (event.target.classList.contains("consent2")) {
-        let cookies = await browser.cookies.getAll({name: "euconsent"});
-
-        if (cookies === undefined || cookies.length == 0) {
-            console.log("I have not found what you are looking for.");
-        } else {
+            let j = 1;
             for (let cookie of cookies) {
-                console.log(cookie);
+                // console.log(cookie);
+                console.log("#" + j);
+                    console.log(cookie);
+                    j++;
+                }
+        }
+    }
+    if (event.target.classList.contains("logAll")) {
+        logCookies(false);
+    }
+    if (event.target.classList.contains("log")) {
+        logCookies(true);
+    }
+    if (event.target.classList.contains("consent2")) {
+        console.log("ALL DOMAINS FOR GENERATED CONSENT COOKIES");
+        async function addName(name) {
+            let cookies = await browser.cookies.getAll({name: name});
+                        if (name === "ckns_policy_exp") {
+                console.log("Next four cookies are BBC SPECIFIC");
+            }
+              if (cookies === undefined || cookies.length == 0) {
+                 console.log(name + " not present.");
+             } else {
+                console.log("***********FOUND: " + name);
+                 for (let cookie of cookies) {
+                     console.log(cookie.domain);
+                 }
             }
         }
-    }
+        addName("euconsent");
+        addName("banner-cookie");
+        addName("GU_TK");
+        addName("ckns_policy_exp");
+        addName("ckns_policy");
+        addName("ckns_privacy");
+        addName("ckns_explicit");
+        addName("cookie_notice_accepted");
+        addName("cookie-law-bar");
+        addName("NYT-T");
+        addName("lopd");
+        addName("_iph_pcb");
+        addName("consentSaw");
+        addName("_gat");
+        addName("cookieConsent");
+        addName("cookies_notice");
+     }
 
-    /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
-    if (event.target.classList.contains("clear")) {
-        try {
-            await browser.browsingData.removeCookies({});
-            console.log("Removed!");
-        } catch (error) {
-            console.error(error);
-        }
-    }
+     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
+     if (event.target.classList.contains("clear")) {
+         try {
+             await browser.browsingData.removeCookies({});
+             console.log("Removed!");
+         } catch (error) {
+             console.error(error);
+         }
+     }
 
-    if (event.target.classList.contains("generate")) {
-        browser.tabs.executeScript({
-            file: "consent-string-packed/consent.js",
-        });
-    }
-});
->>>>>>> master
+     if (event.target.classList.contains("preload")) {
+         preloadCookies();
+     }
+ });
