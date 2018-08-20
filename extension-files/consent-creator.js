@@ -3,8 +3,8 @@
  * Processes "tabs" variable and sends it to removeCookies and addGVCC
  */
 async function initiateCookie() {
-	let tabs = await browser.tabs.query({active: true, currentWindow: true});
-	let domain = tabs[0].url.split("/")[2];
+    let tabs = await browser.tabs.query({active: true, currentWindow: true});
+    let domain = tabs[0].url.split("/")[2];
     browser.webNavigation.onCommitted.removeListener(initiateCookie);
     let urlSet = tabs[0].url;
     let nameSet = "euconsent";
@@ -21,7 +21,7 @@ async function initiateCookie() {
     if (domain.startsWith("www.thelocal")) {
         domain = "theLocal";
     }
-	if (domain.startsWith("ctxt")) {
+    if (domain.startsWith("ctxt")) {
         domain = "ctxt";
     }
     // for debugging
@@ -119,42 +119,42 @@ async function initiateCookie() {
             domainSet = ".nytimes.com";
             setCookie();
         case "ctxt":
-		    nameSet = "lopd";
-			valueSet = "true";
-			domainSet = "ctxt.es";
-			setCookie();
-			break;
-		/*Experimental forsal support
-		case "forsal.pl":
-		    nameSet = "inforCookieWallGlobalVal";
-			valueSet = "15";
-			domainSet = "forsal.pl";
-			setCookie();
-			break;*/
-		case "index.hu":
-		    nameSet = "_iph_pcb";
-			valueSet = "1";
-			setCookie();
-			break;
-		case "www.thejournal.ie":
-		console.log("found");
-			nameSet = "cookies_notice";
-			valueSet = "1";
-			setCookie();
-			break;
-		/*investing.com and index.hr will load 
-		consent cookie on second load.
-		Can be preloaded with the "preload" button
-		case "www.investing.com":
-			nameSet = "cookieConsent";
-			valueSet = "was-set";
-			setCookie();
-			break;
-		case "www.index.hr":
-			nameSet = "_gat";
-			valueSet = "1";
-			setCookie()
-			break;*/
+            nameSet = "lopd";
+            valueSet = "true";
+            domainSet = "ctxt.es";
+            setCookie();
+            break;
+        /* Experimental forsal support
+        case "forsal.pl":
+            nameSet = "inforCookieWallGlobalVal";
+            valueSet = "15";
+            domainSet = "forsal.pl";
+            setCookie();
+            break;*/
+        case "index.hu":
+            nameSet = "_iph_pcb";
+            valueSet = "1";
+            setCookie();
+            break;
+        case "www.thejournal.ie":
+        console.log("found");
+            nameSet = "cookies_notice";
+            valueSet = "1";
+            setCookie();
+            break;
+        /* investing.com and index.hr will load
+        consent cookie on second load.
+        Can be preloaded with the "preload" button
+        case "www.investing.com":
+            nameSet = "cookieConsent";
+            valueSet = "was-set";
+            setCookie();
+            break;
+        case "www.index.hr":
+            nameSet = "_gat";
+            valueSet = "1";
+            setCookie()
+            break;*/
         /*  This is based on an Opt-Out cookie that
         quantserve provides. I can't seem to get
         the necessary permissions to create the
@@ -197,5 +197,5 @@ function main() {
 }
 main();
 
-//browser.cookies.onChanged.addListener(function(cookie) {
-//console.log(cookie.cookie);});
+// browser.cookies.onChanged.addListener(function(cookie) {
+// console.log(cookie.cookie);});

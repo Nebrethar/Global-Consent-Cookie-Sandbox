@@ -1,51 +1,38 @@
 document.addEventListener("click", async (event) => {
-	async function preloadCookies() {
-    let nameSet = "euconsent";
-    let valueSet = "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
-            "___________________________________________" +
-            "________________________________A";
-    let httpOnlySet = false;
-    let pathSet = "/";
-    let firstPartyDomainSet = "";
-    let storeIdSet = "firefox-default";
-    let domainSet = "";
-	let urlSet = "";
-    async function setCookie() {
+    async function preloadCookies() {
+    async function setCookie(nameSet, valueSet, domainSet, urlSet) {
         await browser.cookies.set({
             url: urlSet,
             name: nameSet,
             value: valueSet,
-            httpOnly: httpOnlySet,
-            path: pathSet,
-            firstPartyDomain: firstPartyDomainSet,
-            storeId: storeIdSet,
+            httpOnly: false,
+            path: "/",
+            firstPartyDomain: "",
+            storeId: "firefox-default",
             domain: domainSet,
             secure: false,
             expirationDate: 1566099891,
         });
+        console.log("Cookie " + nameSet + " set for domain " + domainSet);
     }
-	console.log("set cookieConsent for www.investing.com");
-		nameSet = "cookieConsent";
-		valueSet = "was-set";
-		domainSet = ".www.investing.com"
-		urlSet = "https://www.investing.com/";
-		setCookie();
-	console.log("set _gat for www.index.hr");
-		nameSet = "_gat";
-		valueSet = "1";
-		domainSet = ".www.index.hr"
-		urlSet = "https://www.index.hr/"
-		setCookie();
-	console.log("set cookies_notice for .www.thejournal.ie");
-		nameSet = "cookies_notice";
-		valueSet = "1";
-		domainSet = ".www.thejournal.ie"
-		urlSet = "http://www.thejournal.ie/"
-		setCookie();
+    // set cookieConsent for www.investing.com
+    setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
+    // set _gat for www.index.hr
+    setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
+    // set cookies_notice for .www.thejournal.ie
+    setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
 }
-    async function logCookies() {
-		let tabs = await browser.tabs.query({active: true, currentWindow: true});
-		let cookies = await browser.cookies.getAll({url:tabs[0].url});
+    async function logCookies(currentDomain) {
+        let tabs = await browser.tabs.query({
+        active: true, currentWindow: true});
+        let cookies = null;
+        if (currentDomain == true) {
+        console.log("CURRENT DOMAIN");
+        cookies = await browser.cookies.getAll({url: tabs[0].url});
+        } else {
+        cookies = await browser.cookies.getAll({});
+        }
+        console.log("CONTINGUE");
         if (cookies === undefined || cookies.length == 0) {
             console.log("No cookies found!");
         } else {
@@ -58,8 +45,11 @@ document.addEventListener("click", async (event) => {
                 }
         }
     }
+    if (event.target.classList.contains("logAll")) {
+        logCookies(false);
+    }
     if (event.target.classList.contains("log")) {
-        logCookies();
+        logCookies(true);
     }
     if (event.target.classList.contains("consent2")) {
         console.log("ALL DOMAINS FOR GENERATED CONSENT COOKIES");
@@ -87,12 +77,12 @@ document.addEventListener("click", async (event) => {
         addName("cookie_notice_accepted");
         addName("cookie-law-bar");
         addName("NYT-T");
-		addName("lopd");
-		addName("_iph_pcb");
-		addName("consentSaw");
-		addName("_gat");
-		addName("cookieConsent");
-		addName("cookies_notice");
+        addName("lopd");
+        addName("_iph_pcb");
+        addName("consentSaw");
+        addName("_gat");
+        addName("cookieConsent");
+        addName("cookies_notice");
      }
 
      /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
