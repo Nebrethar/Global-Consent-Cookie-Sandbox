@@ -1,5 +1,6 @@
 "use strict";
- /**
+
+/**
  * Processes "tabs" variable and sends it to removeCookies and addGVCC
  */
 async function initiateCookie() {
@@ -154,7 +155,9 @@ async function initiateCookie() {
             "\"consent_date\":\"2018-08-21T15:49:17.529Z\"}";
             domainSet = ".reuters.com";
             setCookie();
-            /*
+            /* investing.com and index.hr will load
+            consent cookie on second load.
+            Can be preloaded with the "preload" button
         case "www.investing.com":
             nameSet = "cookieConsent";
             valueSet = "was-set";
@@ -165,10 +168,10 @@ async function initiateCookie() {
             valueSet = "1";
             setCookie()
             break;*/
-        /*  This is based on an Opt-Out cookie that
-        quantserve provides. I can't seem to get
-        the necessary permissions to create the
-        cookie.
+            /*  This is based on an Opt-Out cookie that
+            quantserve provides. I can't seem to get
+            the necessary permissions to create the
+            cookie.
         case "www.euronews.com":
             domainSet = ".quantserve.com";
             nameSet = "qoo";
@@ -195,7 +198,7 @@ async function initiateCookie() {
     // console.log("Setting cookie value: " + valueSet.substr(0,16) + "....");
     // Temporary fix for window issue described below.
     main();
-    broswer.webNavigation.onCreatedNavigationTarget.addListener(main);
+    browser.webNavigation.onCreatedNavigationTarget.addListener(main);
     browser.tabs.onActivated.addListener(main);
 }
 // Would like to call this on navigation to a new
