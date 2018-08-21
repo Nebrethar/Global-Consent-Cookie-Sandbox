@@ -19,6 +19,8 @@
             "ecmaVersion": 2017
         },
         "rules": {
+            "indent": ["error", 4, {"SwitchCase": 1}],
+            "max-len": ["error", {"code": 120, "ignoreStrings": true}],
             "quotes": 0,
             "require-jsdoc": 0,
             "valid-jsdoc": 0
