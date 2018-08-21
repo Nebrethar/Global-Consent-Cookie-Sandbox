@@ -85,12 +85,6 @@ async function initiateCookie() {
             valueSet = "0";
             setCookie();
             break;
-        case "www.theguardian.com":
-            nameSet = "GU_TK";
-            valueSet = "1.1534544181584";
-            domainSet = ".theguardian.com";
-            setCookie();
-            break;
         case "voterspost.com":
             nameSet = "cookie_notice_accepted";
             valueSet = "true";
@@ -123,6 +117,10 @@ async function initiateCookie() {
             valueSet = "ok";
             domainSet = ".nytimes.com";
             setCookie();
+            nameSet = "nyt-gdpr";
+            valueSet = "1";
+            domainSet = ".nytimes.com";
+            setCookie();
             break;
         case "ctxt":
             nameSet = "lopd";
@@ -143,11 +141,20 @@ async function initiateCookie() {
             setCookie();
             break;
         case "www.thejournal.ie":
-            console.log("found");
             nameSet = "cookies_notice";
             valueSet = "1";
             setCookie();
             break;
+        case "de.reuters.com":
+            nameSet = "_evidon_consent_cookie";
+            valueSet = "{\"vendors\":{\"3\":[17,51,58,64,80,81,131," +
+            "134,168,174,176,190,249,257,274,290,292,313,348,355,395," +
+            "443,474,480,506,635,920,934,958,1043,1256,1284,1440,1550," +
+            "1879,2449,2516,2521,2609,2645,2918,2941,3009,3373,3490,3561,+ " +
+            "3632,3768,3794,3857,3992,4097,4160,4511,4670,4672,5148,5172]}," +
+            "\"consent_date\":\"2018-08-21T15:49:17.529Z\"}";
+            domainSet = ".reuters.com";
+            setCookie();
             /* investing.com and index.hr will load
             consent cookie on second load.
             Can be preloaded with the "preload" button
