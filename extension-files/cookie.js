@@ -15,13 +15,9 @@ document.addEventListener("click", async (event) => {
         });
         console.log("Cookie " + nameSet + " set for domain " + domainSet);
     }
-    // set cookieConsent for www.investing.com
     setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
-    // set _gat for www.index.hr
     setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
-    // set cookies_notice for .www.thejournal.ie
     setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
-	// set cookies_notice for .www.thejournal.ie
     setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
 }
     async function logCookies(currentDomain) {

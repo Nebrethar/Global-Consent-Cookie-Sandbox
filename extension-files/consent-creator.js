@@ -29,7 +29,7 @@ async function initiateCookie() {
         domain = "ctxt";
     }
     // useful  for debugging
-    console.log("DOMAIN: " + domain);
+    //console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
