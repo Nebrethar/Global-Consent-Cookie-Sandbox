@@ -1,39 +1,41 @@
 "use strict";
 
 document.addEventListener("click", async (event) => {
+    async function setCookie(nameSet, valueSet, domainSet, urlSet) {
+        await browser.cookies.set({
+            url: urlSet,
+            name: nameSet,
+            value: valueSet,
+            httpOnly: false,
+            path: "/",
+            firstPartyDomain: "",
+            storeId: "firefox-default",
+            domain: domainSet,
+            secure: false,
+            expirationDate: 1566099891,
+        });
+        console.log("Cookie " + nameSet + " set for domain " + domainSet);
+    }
+
     async function preloadCookies() {
-        async function setCookie(nameSet, valueSet, domainSet, urlSet) {
-            await browser.cookies.set({
-                url: urlSet,
-                name: nameSet,
-                value: valueSet,
-                httpOnly: false,
-                path: "/",
-                firstPartyDomain: "",
-                storeId: "firefox-default",
-                domain: domainSet,
-                secure: false,
-                expirationDate: 1566099891,
-            });
-            console.log("Cookie " + nameSet + " set for domain " + domainSet);
-        }
         // set cookieConsent for www.investing.com
         setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
         // set _gat for www.index.hr
         setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
         // set cookies_notice for .www.thejournal.ie
         setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
+
+        setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
+        setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
+        setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
+        setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
     }
-    setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
-    setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
-    setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
-    setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
-}
+
     async function logCookies(currentDomain) {
         let tabs = await browser.tabs.query({active: true, currentWindow: true});
         let cookies = null;
         if (currentDomain == true) {
-        cookies = await browser.cookies.getAll({url: tabs[0].url});
+            cookies = await browser.cookies.getAll({url: tabs[0].url});
             console.log("CURRENT DOMAIN");
             cookies = await browser.cookies.getAll({url: tabs[0].url});
         } else {
@@ -122,10 +124,11 @@ document.addEventListener("click", async (event) => {
         }
         snapshot = cookies;
     }
-});
-if (event.target.classList.contains("preload")) {
-    preloadCookies();
-}
+
+    if (event.target.classList.contains("preload")) {
+        preloadCookies();
+    }
+
     if (event.target.classList.contains("snapshot")) {
         let [tab] = await browser.tabs.query({active: true});
         let domain = new URL(tab.url).host;
@@ -139,6 +142,7 @@ if (event.target.classList.contains("preload")) {
         }
         snapshot = cookies;
     }
- });
+});
+
 // Save a snapshot of cookies to compare to.
 let snapshot = [];
