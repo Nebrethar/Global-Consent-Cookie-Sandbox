@@ -29,7 +29,7 @@ async function initiateCookie() {
         domain = "ctxt";
     }
     // useful  for debugging
-    // console.log("DOMAIN: " + domain);
+    console.log("DOMAIN: " + domain);
     async function setCookie() {
         await browser.cookies.set({
             url: urlSet,
@@ -84,12 +84,6 @@ async function initiateCookie() {
             valueSet = "0";
             setCookie();
             break;
-        case "www.theguardian.com":
-            nameSet = "GU_TK";
-            valueSet = "1.1534544181584";
-            domainSet = ".theguardian.com";
-            setCookie();
-            break;
         case "voterspost.com":
             nameSet = "cookie_notice_accepted";
             valueSet = "true";
@@ -122,6 +116,11 @@ async function initiateCookie() {
             valueSet = "ok";
             domainSet = ".nytimes.com";
             setCookie();
+			nameSet = "nyt-gdpr";
+            valueSet = "1";
+            domainSet = ".nytimes.com";
+            setCookie();
+			break;
         case "ctxt":
             nameSet = "lopd";
             valueSet = "true";
