@@ -95,4 +95,19 @@ document.addEventListener("click", async (event) => {
      if (event.target.classList.contains("preload")) {
          preloadCookies();
      }
+    if (event.target.classList.contains("snapshot")) {
+        let [tab] = await browser.tabs.query({active: true});
+        let domain = new URL(tab.url).host;
+        let cookies = await browser.cookies.getAll({domain});
+        console.log("snapshot for: ", domain);
+        for (let c of cookies) {
+            let same = (s) => s.name === c.name && s.value === c.value;
+            if (!snapshot.some(same)) {
+                console.log(c);
+            }
+        }
+        snapshot = cookies;
+    }
  });
+ // Save a snapshot of cookies to compare to.
+ let snapshot = [];
