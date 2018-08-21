@@ -73,7 +73,7 @@ document.addEventListener("click", async (event) => {
         addName("cookie_notice_accepted");
         addName("cookie-law-bar");
         addName("NYT-T");
-		addName("nyt-gdpr");
+        addName("nyt-gdpr");
         addName("lopd");
         addName("_iph_pcb");
         addName("consentSaw");
