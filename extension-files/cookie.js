@@ -93,14 +93,6 @@ let actions = {
             });
             console.log("Cookie " + nameSet + " set for domain " + domainSet);
         }
-
-        // set cookieConsent for www.investing.com
-        setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
-        // set _gat for www.index.hr
-        setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
-        // set cookies_notice for .www.thejournal.ie
-        setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
-
         setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
         setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
         setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
