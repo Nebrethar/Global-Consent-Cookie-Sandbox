@@ -25,11 +25,11 @@
         "scripts": ["/extension-files/consent-creator.js"]
     },
     "browser_action": {
-        "default_icon": "icons/cookie-32.png",
+        "default_icon": "icon.png",
         "default_popup": "extension-files/cookie.html"
     },
 
     "icons": {
-        "96": "icons/cookie-96.png"
+        "96": "icon-96.png"
     }
 }
