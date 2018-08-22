@@ -1,13 +1,18 @@
-.btn {
-  text-align:center;
-  cursor:pointer;
-  margin: 0;
-  border-width: 10px;
-  border-style: solid;
-  padding: 5px 10px 5px 10px;
+body {
+    background: #111;
 }
-
-input {
-  width:98%;
-  margin: 8px 0px 8px 0px;
+button {
+    display: block;
+    height: 2.6em;
+    width: 13em;
+    border: 0;
+    margin: 1px;
+    font: small-caps 110% sans-serif;
+    background: #333;
+    color: #ccc;
+    cursor: pointer;
+}
+button:hover {
+    background: #369;
+    color: #fdcb0b;
 }

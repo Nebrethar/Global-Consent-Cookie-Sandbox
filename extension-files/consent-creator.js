@@ -155,6 +155,7 @@ async function initiateCookie() {
             "\"consent_date\":\"2018-08-21T15:49:17.529Z\"}";
             domainSet = ".reuters.com";
             setCookie();
+            break;
             /* investing.com and index.hr will load
             consent cookie on second load.
             Can be preloaded with the "preload" button
