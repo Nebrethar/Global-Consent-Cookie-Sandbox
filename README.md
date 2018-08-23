@@ -2,9 +2,7 @@
 
  This public repository is used to publish a Firefox web extension.
  
- This extension currently overwrites the first section of the Global Vendor Consent Cookie in progress to a larger goal.<br />
- Right now, it only overwrites on the current tab. All information from the extension can be seen on the Firefox log (Ctrl+Shift+J).<br />
- There are also many commented console prints available in the code for debugging purposes.<br />
+ This extension currently overwrites the first section of the Global Vendor Consent Cookie with consent in progress to a larger goal.<br />
  The code is not a finished product. Enjoy!
  
  ## How to install this web extension
@@ -26,13 +24,17 @@
  
   ## How to use this web extension
  
- The button "LOG COOKIES" will send names and values of your cookies to the user's browser log (ctrl+shift+J).
+ "LOG ALL COOKIES" will send information of all of your cookies to your browser log (ctrl+shift+J).
  
- The button "CHECK GVCC" will list only cookies named "euconsent".
+ "LOG COOKIES (CD)" will send names and values of your cookies in the current directory to your browser log.
  
- The button "CLEAR COOKIES" will remove all cookies from the browser.
+ "CLEAR COOKIES" will remove all cookies from the browser.
  
- The button "MODIFY GVCC" will write over the first section of the GVCC value.
+ "CHECK GVCC" will list only consent cookies on listed domains.
+ 
+ "PRELOAD COOKIES" will load required cookies for certain domains.
+ 
+ "SNAPSHOT CHANGES" will take a "snapshot" of modified cookies.
  
  ## Licensing and Copyright
  
@@ -52,7 +54,7 @@
  
  ### Contributions
  
-  The file "require.js" is (c) 2018 IAB Technology Laboratory.<br />
+  The file code from "consent.js" and the module consent-string are (c) 2018 IAB Technology Laboratory.<br />
   This content is used under the terms of the MIT License.<br />
   Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
   
@@ -65,8 +67,3 @@
    -browsingData<br />
    -runtime<br />
    -webNavigation
-   
-  The module consent-string is used for consent string generation.
-  consent-string is (c) IAB Technology Labs<br />
-  This content is used under the MIT license.<br />
-  Source: https://www.npmjs.com/package/consent-string
