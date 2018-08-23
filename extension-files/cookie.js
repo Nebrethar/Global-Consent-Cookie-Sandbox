@@ -52,7 +52,7 @@ let actions = {
         addName("ckns_explicit");
         addName("cookie_notice_accepted");
         addName("cookie-law-bar");
-		addName("closeGDPR");
+        addName("closeGDPR");
         addName("NYT-T");
         addName("nyt-gdpr");
         addName("lopd");
@@ -63,13 +63,13 @@ let actions = {
         addName("cc");
         addName("displayCookieConsent");
         addName("cookie-agreed");
-		addName("_evidon_consent_cookie");
-		addName("rtiCookieLaw01");
-		addName("gdprCookie");
-		addName("sn_cookie");
-		addName("ObsRGPD");
-		addName("_iph_pcb");
-		addName("_gali");
+        addName("_evidon_consent_cookie");
+        addName("rtiCookieLaw01");
+        addName("gdprCookie");
+        addName("sn_cookie");
+        addName("ObsRGPD");
+        addName("_iph_pcb");
+        addName("_gali");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
