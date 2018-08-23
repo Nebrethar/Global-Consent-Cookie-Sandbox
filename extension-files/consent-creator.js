@@ -156,6 +156,38 @@ async function initiateCookie() {
             domainSet = ".reuters.com";
             setCookie();
             break;
+        case "www.mediapart.fr":
+            nameSet = "cc";
+            // This is the cookie recieved when "J'accepte" is pressed
+            valueSet = "{%22disagreement%22:[]%2C%22creation%22:1535037101031%2C%22update%22:1535037123418}";
+            domainSet = ".mediapart.fr";
+            setCookie();
+            break;
+        case "lepetitjournal.com":
+            nameSet = "cookie-agreed";
+            valueSet = "2";
+            setCookie();
+            break;
+            /*
+        case "www.meneame.net":
+            setCookie();
+            nameSet = "epubconsent";
+            valueSet = "BOS9DEaOS9DEaAKAHAENAAAA-AAAAA";
+            setCookie();
+            console.log("STEP1");
+            await browser.cookies.remove({
+            url: urlSet,
+            name:"displayCookieConsent"});
+            console.log("STEP2");
+            let get = await browser.cookies.getAll({
+            url: urlSet,
+            name:"displayCookieConsent"});
+            console.log(get);
+            nameSet = "displayCookieConsent";
+            valueSet = "n";
+            domainSet = "www.mename.net";
+            setCookie();
+            break;*/
             /* investing.com and index.hr will load
             consent cookie on second load.
             Can be preloaded with the "preload" button
@@ -194,13 +226,13 @@ async function initiateCookie() {
             break;*/
 
         default:
-            // do nothing
     }
     // console.log("Setting cookie value: " + valueSet.substr(0,16) + "....");
     // Temporary fix for window issue described below.
     main();
     browser.webNavigation.onCreatedNavigationTarget.addListener(main);
     browser.tabs.onActivated.addListener(main);
+    browser.webNavigation.onCommitted.addListener(main);
 }
 // Would like to call this on navigation to a new
 // webpage, but cannot find an API for it.

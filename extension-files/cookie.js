@@ -49,6 +49,7 @@ let actions = {
 
         console.log("ALL DOMAINS FOR GENERATED CONSENT COOKIES");
         addName("euconsent");
+        addName("cepubsonsent");
         addName("banner-cookie");
         addName("GU_TK");
         addName("ckns_policy_exp");
@@ -65,6 +66,9 @@ let actions = {
         addName("_gat");
         addName("cookieConsent");
         addName("cookies_notice");
+        addName("cc");
+        addName("displayCookieConsent");
+        addName("cookie-agreed");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
@@ -97,6 +101,12 @@ let actions = {
         setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
         setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
         setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
+        setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
+        setCookie("euconsent", "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
+        "____________________________________________________" +
+        "_______________________A", ".www.meneame.net", "https://www.meneame.net/");
+        setCookie("epubconsent", "BOS9DEaOS9DEaAKAHAENAAAA-AAAAA", ".www.meneame.net", "https://www.meneame.net/");
+        setCookie("displayCookieConsent", "n", "www.meneame.net", "https://www.meneame.net/");
     },
 
     async snapshot() {
