@@ -168,6 +168,45 @@ async function initiateCookie() {
             valueSet = "2";
             setCookie();
             break;
+        case "www.portfolio.hu":
+            nameSet = "_iph_pcb";
+            valueSet = "1";
+            domainSet = ".portfolio.hu";
+            setCookie();
+            nameSet = "_gali";
+            valueSet = "_iph_cp_accept";
+            setCookie();
+            break;
+        case "www.nouvelobs.com":
+            nameSet = "ObsRGPD";
+            valueSet = "%7B%22date%22%3A1568744358165%7D";
+            domainSet = "nouvelobs.com";
+            setCookie();
+            break;
+        case "www.shetnews.co.uk":
+            nameSet = "sn_cookie";
+            valueSet = "enabled";
+            setCookie();
+            break;
+        case "www.tgcom24.mediaset.it":
+            nameSet = "gdprCookie";
+            valueSet = "on";
+            setCookie();
+            nameSet = "rtiCookieLaw01";
+            setCookie();
+            break;
+        case "www.telegraph.co.uk":
+            nameSet = "_evidon_consent_cookie";
+            valueSet = "{\"vendors\":{\"6\":[14,17,31,36,51,56" +
+            ",63,64,66,82,84,111,128,131,134,139,141,168,173,176," +
+            "189,249,253,290,292,293,298,307,313,348,375,395,433," +
+            "457,467,539,550,560,608,623,635,718,841,937,948,1028," +
+            "1100,1117,1192,1256,1463,1647,2197,2449,2609,2629," +
+            "2937,3163,3373,3384,3428,3490,3794,3878,3952,3994," +
+            "4160,4166,4903,4925,4931,4970,5037,5403]},\"consent_" +
+            "date\":\"2018-08-23T18:33:49.352Z\"}";
+            setCookie();
+            break;
             /*
         case "www.meneame.net":
             setCookie();
@@ -224,7 +263,6 @@ async function initiateCookie() {
             domainSet = "www.theverge.com";
             setCookie();
             break;*/
-
         default:
     }
     // console.log("Setting cookie value: " + valueSet.substr(0,16) + "....");

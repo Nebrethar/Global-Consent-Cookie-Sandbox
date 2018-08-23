@@ -34,20 +34,14 @@ let actions = {
     consent2() {
         async function addName(name) {
             let cookies = await browser.cookies.getAll({name: name});
-            if (name === "ckns_policy_exp") {
-                console.log("Next four cookies are BBC SPECIFIC");
-            }
-            if (cookies === undefined || cookies.length == 0) {
-                console.log(name + " not present.");
-            } else {
-                console.log("***********FOUND: " + name);
+            if (cookies.length != 0) {
                 for (let cookie of cookies) {
-                    console.log(cookie.domain);
+                    console.log("At domain " + cookie.domain + " found " + name);
                 }
             }
         }
 
-        console.log("ALL DOMAINS FOR GENERATED CONSENT COOKIES");
+        console.log("ALL PRESENT GENERATED CONSENT COOKIES");
         addName("euconsent");
         addName("cepubsonsent");
         addName("banner-cookie");
@@ -58,17 +52,24 @@ let actions = {
         addName("ckns_explicit");
         addName("cookie_notice_accepted");
         addName("cookie-law-bar");
+        addName("closeGDPR");
         addName("NYT-T");
         addName("nyt-gdpr");
         addName("lopd");
         addName("_iph_pcb");
         addName("consentSaw");
-        addName("_gat");
         addName("cookieConsent");
         addName("cookies_notice");
         addName("cc");
         addName("displayCookieConsent");
         addName("cookie-agreed");
+        addName("_evidon_consent_cookie");
+        addName("rtiCookieLaw01");
+        addName("gdprCookie");
+        addName("sn_cookie");
+        addName("ObsRGPD");
+        addName("_iph_pcb");
+        addName("_gali");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
@@ -102,11 +103,6 @@ let actions = {
         setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
         setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
         setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
-        setCookie("euconsent", "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
-        "____________________________________________________" +
-        "_______________________A", ".www.meneame.net", "https://www.meneame.net/");
-        setCookie("epubconsent", "BOS9DEaOS9DEaAKAHAENAAAA-AAAAA", ".www.meneame.net", "https://www.meneame.net/");
-        setCookie("displayCookieConsent", "n", "www.meneame.net", "https://www.meneame.net/");
     },
 
     async snapshot() {
