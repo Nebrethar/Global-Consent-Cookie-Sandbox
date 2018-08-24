@@ -1,5 +1,36 @@
 "use strict";
 
+const cookies = [
+    {
+        // Doesn't seem to work.
+        domain: "index.hr",
+        name: "_gat",
+        value: "1",
+    },
+    {
+        domain: "investing.com",
+        name: "cookieConsent",
+        value: "was-set",
+    },
+    {
+        // This is the cookie recieved when "J'accepte" is pressed.
+        domain: "mediapart.fr",
+        name: "cc",
+        value: "{%22disagreement%22:[]%2C%22creation%22:1535037101031%2C%22update%22:1535037123418}",
+    },
+    {
+        // Doesn't work either.
+        domain: "theguardian.com",
+        name: "GU_TK",
+        value: "1.1534544181584",
+    },
+    {
+        domain: "thejournal.ie",
+        name: "cookies_notice",
+        value: "1",
+    },
+];
+
 async function logCookies(currentDomain) {
     let tabs = await browser.tabs.query({active: true, currentWindow: true});
     let cookies = null;
@@ -83,26 +114,16 @@ let actions = {
     },
 
     async preload() {
-        async function setCookie(nameSet, valueSet, domainSet, urlSet) {
+        for (let c of cookies) {
             await browser.cookies.set({
-                url: urlSet,
-                name: nameSet,
-                value: valueSet,
-                httpOnly: false,
-                path: "/",
+                domain: c.domain,
+                name: c.name,
+                value: c.value,
+                url: `http://${c.domain}/`,
                 firstPartyDomain: "",
-                storeId: "firefox-default",
-                domain: domainSet,
-                secure: false,
-                expirationDate: 1566099891,
             });
-            console.log("Cookie " + nameSet + " set for domain " + domainSet);
+            console.log(`Cookie ${c.name} set for domain ${c.domain}`);
         }
-        setCookie("cookieConsent", "was-set", ".www.investing.com", "https://www.investing.com/");
-        setCookie("_gat", "1", ".www.index.hr", "https://www.index.hr/");
-        setCookie("cookies_notice", "1", ".www.thejournal.ie", "http://www.thejournal.ie/");
-        setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
-        setCookie("GU_TK", "1.1534544181584", ".theguardian.com", "https://www.theguardian.com");
     },
 
     async snapshot() {
