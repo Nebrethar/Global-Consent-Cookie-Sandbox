@@ -1,11 +1,10 @@
 "use strict";
 
 const cookies = [
-    {
-        // Doesn't seem to work.
+	{
         domain: "index.hr",
-        name: "_gat",
-        value: "1",
+        name: "consentSaw",
+        value: "true",
     },
     {
         domain: "investing.com",
@@ -22,7 +21,7 @@ const cookies = [
         // Doesn't work either.
         domain: "theguardian.com",
         name: "GU_TK",
-        value: "1.1534544181584",
+        value: "1",
     },
     {
         domain: "thejournal.ie",
@@ -101,6 +100,7 @@ let actions = {
         addName("ObsRGPD");
         addName("_iph_pcb");
         addName("_gali");
+		addName("consentSaw");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
