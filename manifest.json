@@ -21,9 +21,6 @@
         "tabs",
         "webNavigation"
     ],
-    "background": {
-        "scripts": ["/extension-files/consent-creator.js"]
-    },
     "browser_action": {
         "default_icon": "icon.png",
         "default_popup": "extension-files/cookie.html"
