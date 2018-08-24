@@ -22,19 +22,25 @@
  ```
  This will also launch Web-Ext.
  
-  ## How to use this web extension
+ ## How to use this Web Extension
+ 
+ To preload all possible cookies that are available. Click the "PRELOAD COOKIES" button.<br /> 
+ Any website that this web extension supports should retain its dialog when loaded, for now.
+ 
+ ### Explanation of Features
  
  "LOG ALL COOKIES" will send information of all of your cookies to your browser log (ctrl+shift+J).
  
  "LOG COOKIES (CD)" will send names and values of your cookies in the current directory to your browser log.
- 
- "CLEAR COOKIES" will remove all cookies from the browser.
  
  "CHECK GVCC" will list only consent cookies on listed domains.
  
  "PRELOAD COOKIES" will load required cookies for certain domains.
  
  "SNAPSHOT CHANGES" will take a "snapshot" of modified cookies.
+ 
+ A "CLEAR COOKIES" Development button is also available that clears all vookies from the browser.<br />
+ It is available in the file "cookie.html"
  
  ## Licensing and Copyright
  
