@@ -2,8 +2,8 @@
 
  This public repository is used to publish a Firefox web extension.
  
- This extension currently overwrites the first section of the Global Vendor Consent Cookie with consent in progress to a larger goal.<br />
- The code is not a finished product. Enjoy!
+ This extension creates consent cookies to streamline the user's consent experience while on GDPR-regulated websites.<br />
+ The code is not a finished product.
  
  ## How to install this web extension
  
@@ -39,9 +39,6 @@
  
  "SNAPSHOT CHANGES" will take a "snapshot" of modified cookies.
  
- A "CLEAR COOKIES" Development button is also available that clears all vookies from the browser.<br />
- It is available in the file "cookie.html"
- 
  ## Licensing and Copyright
  
  All source code copyright is retained by the contributors. All contriubtions and source code are licensed under the MIT license. 
@@ -54,15 +51,7 @@
 
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- All icons are used under Open Content license and are labeled for reuse with modification. <br />
- Icons retrieved from https://pixabay.com/en/chocolate-chip-cookie-chocolate-522389/ <br />
- and edited with MS paint.
- 
  ### Contributions
- 
-  The file code from "consent.js" and the module consent-string are (c) 2018 IAB Technology Laboratory.<br />
-  This content is used under the terms of the MIT License.<br />
-  Source: https://github.com/InteractiveAdvertisingBureau/Consent-String-SDK-JS/blob/master/README.md
   
   Javascript WebExtension APIs used for the project are (c) Mozilla MDN.<br />
   This content is dedicated to the Public Domain.  http://creativecommons.org/publicdomain/zero/1.0/<br />
@@ -70,6 +59,4 @@
   WebExtension API packages currently used:<br />
    -cookies<br />
    -tabs<br />
-   -browsingData<br />
-   -runtime<br />
-   -webNavigation
+   -browsingData
