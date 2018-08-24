@@ -156,13 +156,6 @@ async function initiateCookie() {
             domainSet = ".reuters.com";
             setCookie();
             break;
-        case "www.mediapart.fr":
-            nameSet = "cc";
-            // This is the cookie recieved when "J'accepte" is pressed
-            valueSet = "{%22disagreement%22:[]%2C%22creation%22:1535037101031%2C%22update%22:1535037123418}";
-            domainSet = ".mediapart.fr";
-            setCookie();
-            break;
         case "lepetitjournal.com":
             nameSet = "cookie-agreed";
             valueSet = "2";
