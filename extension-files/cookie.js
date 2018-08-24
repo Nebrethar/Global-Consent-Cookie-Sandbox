@@ -182,6 +182,12 @@ const cookies = [
             "4160,4166,4903,4925,4931,4970,5037,5403]},\"consent_" +
             "date\":\"2018-08-23T18:33:49.352Z\"}",
     },
+    {
+        // Working 8/24/2018 (M)
+        domain: "www.trtworld.com",
+        name: "closeGDPR",
+        value: "true",
+    },
 ];
 
 async function logCookies(currentDomain) {
@@ -255,6 +261,7 @@ let actions = {
         addName("_iph_pcb");
         addName("_gali");
         addName("consentSaw");
+        addName("closeGDPR");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
