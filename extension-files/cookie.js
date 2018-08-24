@@ -1,7 +1,7 @@
 "use strict";
 
 const cookies = [
-	{
+    {
         domain: "index.hr",
         name: "consentSaw",
         value: "true",
@@ -100,7 +100,7 @@ let actions = {
         addName("ObsRGPD");
         addName("_iph_pcb");
         addName("_gali");
-		addName("consentSaw");
+        addName("consentSaw");
     },
 
     /* click "CLEAR COOKIES" WILL CLEAR ALL YOUR COOKIES */
