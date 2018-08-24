@@ -2,121 +2,121 @@
 
 const cookies = [
     {
-	//Working 8/24/2018 (M)
+        // Working 8/24/2018 (M)
         domain: "index.hr",
         name: "consentSaw",
         value: "true",
     },
 
     {
-	//Working 8/24/2018 (M)
+        // Working 8/24/2018 (M)
         domain: "investing.com",
         name: "cookieConsent",
         value: "was-set",
     },
     {
-	//Working 8/24/2018 (M)
+        // Working 8/24/2018 (M)
     // This is the cookie recieved when "J'accepte" is pressed.
         domain: "mediapart.fr",
         name: "cc",
         value: "{%22disagreement%22:[]%2C%22creation%22:1535037101031%2C%22update%22:1535037123418}",
     },
     {
-	//Working 8/24/2018 (M)
+        // Working 8/24/2018 (M)
         domain: "theguardian.co.uk",
         name: "GU_TK",
         value: "1",
     },
     {
-	//Working 8/24/2018 (M)
+        // Working 8/24/2018 (M)
         domain: "thejournal.ie",
         name: "cookies_notice",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.independent.co.uk",
         name: "euconsent",
         value: "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
             "___________________________________________" +
             "________________________________A",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.thelocal.es",
         name: "euconsent",
         value: "BOSl-jdOSl-jlABABBENBd-AAAAgV___________" +
             "___________________________________________" +
             "________________________________A",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.politico.eu",
         name: "banner-cookie",
         value: "0",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "voterspost.com",
         name: "cookie_notice_accepted",
         value: "true",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "bbc.com",
         name: "ckns_policy_exp",
         value: "1566096722751",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "bbc.com",
         name: "ckns_explicit",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "bbc.com",
         name: "ckns_privacy",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "bbc.com",
         name: "ckns_policy",
         value: "111",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.euractiv.com",
         name: "cookie-law-bar",
         value: "accept",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "nytimes.com",
         name: "NYT-T",
         value: "ok",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "nytimes.com",
         name: "nyt-gdpr",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "ctxt.es",
         name: "lopd",
         value: "true",
     },
-	//Working 8/24/2018 (M)
-	{
+    // Working 8/24/2018 (M)
+    {
         domain: "index.hu",
         name: "_iph_pcb",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "reuters.com",
         name: "_evidon_consent_cookie",
         value: "{\"vendors\":{\"3\":[17,51,58,64,80,81,131," +
@@ -126,51 +126,51 @@ const cookies = [
             "3632,3768,3794,3857,3992,4097,4160,4511,4670,4672,5148,5172]}," +
             "\"consent_date\":\"2018-08-21T15:49:17.529Z\"}",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "lepetitjournal.com",
         name: "cookie-agreed",
         value: "2",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.portfolio.hu",
         name: "_iph_pcb",
         value: "1",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.portfolio.hu",
         name: "_gali",
         value: "_iph_cp_accept",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "nouvelobs.com",
         name: "ObsRGPD",
         value: "%7B%22date%22%3A1568744358165%7D",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.shetnews.co.uk",
         name: "sn_cookie",
         value: "enabled",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.tgcom24.mediaset.it",
         name: "rtiCookieLaw01",
         value: "on",
     },
-	{
-	//Working 8/24/2018 (M)
+    {
+        // Working 8/24/2018 (M)
         domain: "www.tgcom24.mediaset.it",
         name: "gdprCookie",
         value: "on",
     },
-	{
-	//Working 8/24/2018 (M)
-	//A blank frame comes up for me, but as inspected it says "google ads iframe"
+    {
+        // Working 8/24/2018 (M)
+        // A blank frame comes up for me, but as inspected it says "google ads iframe"
         domain: "www.telegraph.co.uk",
         name: "_evidon_consent_cookie",
         value: "{\"vendors\":{\"6\":[14,17,31,36,51,56" +
@@ -181,7 +181,7 @@ const cookies = [
             "2937,3163,3373,3384,3428,3490,3794,3878,3952,3994," +
             "4160,4166,4903,4925,4931,4970,5037,5403]},\"consent_" +
             "date\":\"2018-08-23T18:33:49.352Z\"}",
-    }
+    },
 ];
 
 async function logCookies(currentDomain) {
@@ -269,17 +269,17 @@ let actions = {
 
     async preload() {
         for (let c of cookies) {
-		var cSet;
-		if (c.domain.startsWith("nouve") ||
-		c.domain.startsWith("nytimes") || 
-		c.domain.startsWith("bbc") || 
-		c.domain.startsWith("voterspost")) {
-			cSet = "www." + c.domain;
-		} else if (c.domain.startsWith("reuters")) {
-			cSet = "de." + c.domain;
-		} else {
-			cSet = c.domain;
-		}
+            let cSet = "";
+            if (c.domain.startsWith("nouve") ||
+        c.domain.startsWith("nytimes") ||
+        c.domain.startsWith("bbc") ||
+        c.domain.startsWith("voterspost")) {
+                cSet = "www." + c.domain;
+            } else if (c.domain.startsWith("reuters")) {
+                cSet = "de." + c.domain;
+            } else {
+                cSet = c.domain;
+            }
             await browser.cookies.set({
                 domain: c.domain,
                 name: c.name,
