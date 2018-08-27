@@ -7,7 +7,6 @@ const cookies = [
         name: "consentSaw",
         value: "true",
     },
-
     {
         // Working 8/24/2018 (M)
         domain: "investing.com",
@@ -16,7 +15,7 @@ const cookies = [
     },
     {
         // Working 8/24/2018 (M)
-    // This is the cookie recieved when "J'accepte" is pressed.
+        // This is the cookie recieved when "J'accepte" is pressed.
         domain: "mediapart.fr",
         name: "cc",
         value: "{%22disagreement%22:[]%2C%22creation%22:1535037101031%2C%22update%22:1535037123418}",
@@ -276,26 +275,16 @@ let actions = {
 
     async preload() {
         for (let c of cookies) {
-            let cSet = "";
-            if (c.domain.startsWith("nouve") ||
-        c.domain.startsWith("nytimes") ||
-        c.domain.startsWith("bbc") ||
-        c.domain.startsWith("voterspost")) {
-                cSet = "www." + c.domain;
-            } else if (c.domain.startsWith("reuters")) {
-                cSet = "de." + c.domain;
-            } else {
-                cSet = c.domain;
-            }
             await browser.cookies.set({
                 domain: c.domain,
                 name: c.name,
                 value: c.value,
-                url: `http://${cSet}/`,
+                url: `http://${c.domain}/`,
                 firstPartyDomain: "",
             });
             console.log(`Cookie ${c.name} set for domain ${c.domain}`);
         }
+        browser.runtime.sendMessage("loadCSS");
     },
 
     async snapshot() {
